@@ -1,0 +1,15 @@
+<%= render 'layouts/navber' %>
+<%= form_with model:@content, local:true do |f| %>
+  <%= f.label :画像 %><br>
+  <%= f.file_field :img, class: "image" %>
+  <%= f.label :タイトル %>
+  <%= f.text_field :title %>
+  <%= f.label :本文 %>
+  <%= f.text_area :introduction %>
+
+  <h6>スペースを入力することで複数のタグをつけることができます。</h6>
+  <h6>例：犬　エサ　かわいい</h6>
+
+
+  <%= f.submit '投稿' %>
+<%end%>

@@ -1,0 +1,42 @@
+<%= render 'layouts/navber' %>
+<%= image_tag @content.img.url%>
+<%= @content.title%>
+<%= @content.introduction%>
+
+<% if @content.user == current_user %>
+  <%= link_to "編集", edit_content_path(@content) %>
+<% end %>
+
+<% if @content.liked_by?(current_user) %>
+  <p>
+    <%= link_to content_likes_path(@content), method: :delete do %>
+      ♥<%= @content.likes.count %> いいね
+    <% end %>
+  </p>
+<% else %>
+  <p>
+    <%= link_to content_likes_path(@content), method: :post do %>
+      ♥<%= @content.likes.count %> いいね
+    <% end %>
+  </p>
+<% end %>
+
+<div class="comments">
+  <p>コメント：<%= @content.comments.count %></p>
+  <% @content.comments.each do |comment| %>
+    <%= comment.user.name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    <% if comment.user == current_user %>
+      <div class="comment-delete">
+        <%= link_to "削除", content_comment_path(@content, comment), method: :delete %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="new-comment">
+<%= form_with(model:[@content, @comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
+</div>
