@@ -3,8 +3,8 @@ class Content < ApplicationRecord
   mount_uploader :img, ImgUploader
 
   belongs_to :user
+  has_many :content_categories, dependent: :destroy#中間クラスとのアソシエーションを先に書く！
   has_many :categories, through: :content_categories
-  has_many :content_categories, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
@@ -24,6 +24,18 @@ class Content < ApplicationRecord
     new_tags.each do |new_name| #新しいタグが登録されていなければ新規登録
       content_category = Category.find_or_create_by(tag_name:new_name)
       self.categories << content_category
+    end
+  end
+
+  def categories_save(category_list)
+    if self.categories != nil
+      content_categories_records = ContentCategory.where(content_id: self.id)
+      content_categories_records.destroy_all
+    end
+
+    category_list.each do |category|
+      inspected_category = Category.where(tag_name: category).first_or_create
+      self.categories << inspected_category
     end
   end
 end

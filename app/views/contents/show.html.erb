@@ -7,6 +7,12 @@
   <%= link_to "編集", edit_content_path(@content) %>
 <% end %>
 
+<% @content_tags.each do |tag| %>
+<span class="badge badge-pill badge-dark">
+  <%= tag.tag_name %>
+</span>
+<% end %>
+
 <% if @content.liked_by?(current_user) %>
   <p>
     <%= link_to content_likes_path(@content), method: :delete do %>
@@ -20,6 +26,7 @@
     <% end %>
   </p>
 <% end %>
+
 
 <div class="comments">
   <p>コメント：<%= @content.comments.count %></p>

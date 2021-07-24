@@ -7,4 +7,11 @@ class User < ApplicationRecord
   has_many :contents, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+
+  def active_for_authentication?#退会ユーザーのログイン不可
+    super && (self.is_active == true)
+  end
+
+  mount_uploader :profile_image, ProfileImageUploader
+
 end

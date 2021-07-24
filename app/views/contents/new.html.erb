@@ -8,8 +8,11 @@
   <%= f.text_area :introduction %>
 
   <h6>スペースを入力することで複数のタグをつけることができます。</h6>
-  <h6>例：犬　エサ　かわいい</h6>
-
+  <h6>例：犬,エサ,かわいい</h6>
+  <div class="field">
+    <%= f.label :タグ %>
+    <%= f.text_field :tag_names, placeholder:",で区切ってください" %>
+  </div>
 
   <%= f.submit '投稿' %>
 <%end%>

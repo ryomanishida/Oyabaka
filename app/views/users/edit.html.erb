@@ -1,5 +1,12 @@
 ユーザー編集
 <%= form_with model:@user, url:my_pages_path, local:true do |f| %>
+<% if @user.profile_image? %>
+    <%= image_tag @user.profile_image.url, class:'icon' %>
+<% else %>
+    <image src="/assets/no_image.jpg" class="icon" %>
+<% end %>
+  <%= f.label :画像 %><br />
+  <%= f.file_field :profile_image %>
   <%= f.label :名前 %>
   <%= f.text_field :name %>
   <%= f.label :自己紹介 %>
