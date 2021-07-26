@@ -1,5 +1,5 @@
 ユーザー編集
-<%= form_with model:@user, url:my_pages_path, local:true do |f| %>
+<%= form_with model:@user, url:user_path, local:true do |f| %>
 <% if @user.profile_image? %>
     <%= image_tag @user.profile_image.url, class:'icon' %>
 <% else %>

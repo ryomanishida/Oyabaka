@@ -1,0 +1,9 @@
+<% @followings.each do |user| %>
+  <% if user.profile_image? %>
+      <%= image_tag user.profile_image.url, class:'icon' %>
+  <% else %>
+      <image src="/assets/no_image.jpg" class="icon" %>
+  <% end %>
+  <%= user.name %>
+  <%= link_to '投稿', user_contents_path(user) %>
+<% end %>

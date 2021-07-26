@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def update
     @user=current_user
     if @user.update(user_params)
-      redirect_to my_page_path(@user)
+      redirect_to user_path(@user)
     else
       render :edit
     end
@@ -22,6 +22,16 @@ class UsersController < ApplicationController
     flash[:notice]="退会しました。"
     redirect_to root_path
   end
+
+  def followings
+    @followings = current_user.followings
+  end
+
+  def contents
+    @user=User.find(params[:id])
+    @contents=@user.contents
+  end
+
 
   private
   def user_params

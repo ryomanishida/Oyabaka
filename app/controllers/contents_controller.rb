@@ -4,6 +4,7 @@ class ContentsController < ApplicationController
     @contents=Content.all
   end
 
+
   def new
     @content=Content.new
   end
@@ -25,6 +26,7 @@ class ContentsController < ApplicationController
     @content=Content.find(params[:id])
     @comment=Comment.new
     @content_tags=@content.categories
+    @user=@content.user
   end
 
   def edit

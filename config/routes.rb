@@ -7,10 +7,12 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'home/about', to: 'homes#about'
 
-  get 'my_page', to: 'users#show'
-  get 'my_page/edit', to: 'users#edit'
-  patch 'my_pages', to: 'users#update'
-  put 'my_pages', to: 'users#update'
+  resources :users, only: [:show, :edit, :update] do
+    member do
+     get :followings
+    end
+  end
+  get 'user/:id/contents', to: 'users#contents', as: 'user_contents'
 
   resources :contents do
     resources :comments, only: [:create, :destroy]
@@ -25,4 +27,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :contents
   end
+
+  resources :relationships, only: [:create, :destroy]
+
+
 end

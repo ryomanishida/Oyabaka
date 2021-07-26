@@ -1,10 +1,13 @@
 <h1>マイページ</h1>
-<%= @user.name %>
-<%= @user.self_introduction %>
 <% if @user.profile_image? %>
     <%= image_tag @user.profile_image.url, class:'icon' %>
 <% else %>
     <image src="/assets/no_image.jpg" class="icon" %>
 <% end %>
+<%= @user.name %>
+<%= @user.self_introduction %>
+<%= link_to '編集する', edit_user_path(current_user), class:'btn btn-success' %>
 
-<%= link_to '編集する', my_page_edit_path(current_user), class:'btn btn-success' %>
+<%= link_to '投稿', user_contents_path(@user) %>
+
+<%= link_to 'フォロー', followings_user_path %>
