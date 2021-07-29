@@ -1,4 +1,5 @@
 <%= render 'layouts/navber' %>
+<%= render 'layouts/content_error' %>
 <%= form_with model:@content, local:true do |f| %>
   <%= f.label :画像 %><br>
   <%= f.file_field :img, class: "image" %>
@@ -14,5 +15,5 @@
     <%= f.text_field :tag_names, placeholder:",で区切ってください" %>
   </div>
 
-  <%= f.submit '投稿' %>
+  <%= f.submit "投稿" %>
 <%end%>

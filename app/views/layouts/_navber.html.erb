@@ -5,48 +5,64 @@
   </button>
 
 
-
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li>
-        <%= link_to 'Home', search_contents_path %>
+        <%= link_to "Home", search_contents_path %>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">日本語＾ <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a href="/contents/new" class="btn-circle-border-simple">+</a>
-      </li>
-      <li class="nav-item">
-        <% if user_signed_in? && !current_user&.admin %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <% elsif user_signed_in? && current_user&.admin %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-          <%= link_to "会員一覧", admin_users_path %>
-        <% else %>
-          <%=link_to "アカウント作成", new_user_registration_path, class:'btn btn-top btn-radius' %>
-          <%=link_to "ログイン", new_user_session_path, class:'btn btn2-top btn-radius' %>
-        <% end %>
-      </li>
-
-      <li class="nav-item dropdown">
-        <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <% if current_user.profile_image? %>
-              <%= image_tag current_user.profile_image.url, class:"icon" %>
-          <% else %>
-              <image src="/assets/no_image.jpg" class="icon" %>
-          <% end %>
-        </div>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%#= link_to 'フォロー', , class:"dropdown-item"%>
-          <%= link_to 'マイページ', user_path(current_user.id), class:"dropdown-item"%>
-          <%= link_to 'いいねした投稿', user_likes_path, class:"dropdown-item"%>
-          <%= link_to 'アルバム', albums_path, class:"dropdown-item"%>
-          <%= link_to '設定', edit_user_registration_path(current_user), class:"dropdown-item"%>
-        </div>
-      </li>
-      <%#if current_user.admin? %>
+      <% if user_signed_in? && !current_user&.admin %>
+      　　<li class="nav-item active">
+            <a href="/contents/new" class="btn-circle-border-simple">+</a>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+          <li class="nav-item dropdown">
+            <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if current_user.profile_image? %>
+                  <%= image_tag current_user.profile_image.url, class:"icon" %>
+              <% else %>
+                  <image src="/assets/no_image.jpg" class="icon" >
+              <% end %>
+            </div>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'マイページ', user_path(current_user.id), class:"dropdown-item"%>
+              <%= link_to 'いいねした投稿', user_likes_path, class:"dropdown-item"%>
+              <%= link_to 'アルバム', albums_path, class:"dropdown-item"%>
+              <%= link_to '設定', edit_user_registration_path(current_user), class:"dropdown-item"%>
+            </div>
+          </li>
+      <% elsif user_signed_in? && current_user&.admin %>
+          <li class="nav-item active">
+            <a href="/contents/new" class="btn-circle-border-simple">+</a>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "会員一覧", admin_users_path %>
+          </li>
+          <li class="nav-item dropdown">
+            <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if current_user.profile_image? %>
+                  <%= image_tag current_user.profile_image.url, class:"icon" %>
+              <% else %>
+                  <image src="/assets/no_image.jpg" class="icon" >
+              <% end %>
+            </div>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'マイページ', user_path(current_user.id), class:"dropdown-item"%>
+              <%= link_to '設定', edit_user_registration_path(current_user), class:"dropdown-item"%>
+            </div>
+          </li>
+      <% else %>
+          <li class="nav-item">
+            <%=link_to "アカウント作成", new_user_registration_path, class:'btn btn-top btn-radius' %>
+          </li>
+          <li class="nav-item">
+            <%=link_to "ログイン", new_user_session_path, class:'btn btn2-top btn-radius' %>
+          </li>
+      <% end %>
     </ul>
   </div>
 </nav>

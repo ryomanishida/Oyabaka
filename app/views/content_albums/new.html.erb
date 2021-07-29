@@ -1,52 +1,9 @@
 <%= render 'layouts/navber' %>
-
-<!--collection_check_boxes-->
 <%= form_with model:@content_album, local: true do |f| %>
   <%= f.label :アルバム名 %>
   <%= f.text_field :album_name %>
   <%= f.collection_check_boxes :content_id, @contents, :id, :title do |b| %>
     <%= b.label { b.check_box + b.text } %>
   <% end %>
-  <%= f.submit '保存' %>
+  <%= f.submit "保存" %>
 <% end %>
-
-<%
-=begin %>
-<!--check_box-->
-<%= form_with model:@album, local: true do |f| %>
-  <%= f.label :アルバム名 %>
-  <%= f.text_field :album_name %>
-
-  <% @contents.each do |content| %>
-    <%= link_to content_path(content) do %>
-      <%= image_tag content.img.url, class: "content-image" %>
-    <% end %>
-    <%= f.check_box :content, {multiple: true}, :id, nil %>
-  <% end %>
-
-  <%= f.submit '保存' %>
-<% end %>
-<%
-=end %>
-
-
-<%
-=begin %>
-<!--check_box2-->
-<%= form_with model:@album, local: true do |f| %>
-  <%= f.label :アルバム名 %>
-  <%= f.text_field :album_name %>
-
-  <% @contents.each do |content| %>
-    <%= link_to content_path(content) do %>
-      <%= image_tag content.img.url, class: "content-image" %>
-    <% end %>
-    <%= f.check_box :content,
-                            { multiple: true,
-                              checked: content.id.present? ? content.id.split(",").include?(:id) : false },
-                              :id, nil %>
-  <% end %>
-  <%= f.submit '保存' %>
-<% end %>
-<%
-=end %>

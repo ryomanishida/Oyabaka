@@ -1,17 +1,17 @@
 class ContentsController < ApplicationController
 
   def index
-    @contents=Content.all
+    @contents = Content.all
   end
 
 
   def new
-    @content=Content.new
+    @content = Content.new
   end
 
   def create
-    @content=Content.new(content_params)
-    @content.user_id=current_user.id
+    @content = Content.new(content_params)
+    @content.user_id = current_user.id
     category_list = params[:content][:tag_names].split(",")
     if @content.save
       @content.categories_save(category_list)
@@ -23,19 +23,19 @@ class ContentsController < ApplicationController
   end
 
   def show
-    @content=Content.find(params[:id])
-    @comment=Comment.new
-    @content_tags=@content.categories
-    @user=@content.user
+    @content = Content.find(params[:id])
+    @comment = Comment.new
+    @content_tags = @content.categories
+    @user = @content.user
   end
 
   def edit
-    @content=Content.find(params[:id])
-    @content_tags =@content.categories.pluck(:tag_name).join(",")
+    @content = Content.find(params[:id])
+    @content_tags = @content.categories.pluck(:tag_name).join(",")
   end
 
   def update
-    @content=Content.find(params[:id])
+    @content = Content.find(params[:id])
     category_list = params[:content][:tag_names].split(",")
     if @content.update(content_params)
       @content.categories_save(category_list)
@@ -47,7 +47,7 @@ class ContentsController < ApplicationController
   end
 
   def destroy
-    @content=Content.find(params[:id])
+    @content = Content.find(params[:id])
     if  @content.destroy
       redirect_to contents_path
     else
@@ -56,7 +56,8 @@ class ContentsController < ApplicationController
   end
 
   def search
-    @tags=Category.all
+    @ranks = Content.find(Like.group(:content_id).order('count(content_id) desc').limit(3).pluck(:content_id))
+    @tags = Category.all
     if params[:title].present?
       @contents = Content.where('title LIKE ?', "%#{params[:title]}%")
     else

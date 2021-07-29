@@ -1,8 +1,8 @@
 class ContentAlbumsController < ApplicationController
 
   def new
-    @content_album=ContentAlbum.new
-    @contents=current_user.contents
+    @content_album = ContentAlbum.new
+    @contents = current_user.contents
   end
 
   def create
@@ -17,10 +17,7 @@ class ContentAlbumsController < ApplicationController
       @content_album.album_id = @album.id
       @content_album.save
     end
-
-
     redirect_to albums_path
-
   end
 
   private

@@ -1,11 +1,12 @@
 <h3>癒しがここに。</h3>
 <h4>親バカをはじめる</h4>
-<%= image_tag 'animal-1238238.jpg', class:'sized' %>
+<%= image_tag 'animal-1238238.jpg', class: "sized" %>
 <% if user_signed_in? %>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 <% else %>
-  <%=link_to "アカウント作成", new_user_registration_path, class:'btn btn-top btn-radius' %>
-  <%=link_to "ログイン", new_user_session_path, class:'btn btn2-top btn-radius' %>
+  <%= link_to "アカウント作成", new_user_registration_path, class: 'btn btn-top btn-radius' %>
+  <%= link_to "ログイン", new_user_session_path, class: 'btn btn2-top btn-radius' %>
 <% end %>
+<%= link_to "アプリを除く", search_contents_path, class: 'btn btn2-top btn-radius' %>
 
 

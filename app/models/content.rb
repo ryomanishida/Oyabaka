@@ -9,7 +9,10 @@ class Content < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :content_albums, dependent: :destroy
   has_many :albums, through: :content_albums
-  
+  validates :img, presence: true
+  validates :title, presence: true, length: { maximum: 70 }
+  validates :introduction, presence: true, length: { maximum: 120 }
+
 
 
   def liked_by?(user)

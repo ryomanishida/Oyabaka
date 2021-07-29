@@ -1,15 +1,15 @@
 class AlbumsController < ApplicationController
 
   def index
-    @albums=Album.all
+    @albums = Album.all
   end
 
   def show
-    @album=Album.find(params[:id])
+    @album = Album.find(params[:id])
   end
 
   def add
-    @contents=current_user.contents
+    @contents = current_user.contents
   end
 
   def new
@@ -19,7 +19,7 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    @album=Album.find(params[:id])
+    @album = Album.find(params[:id])
     if @album.update(album_params)
       redirect_to content_path
     else
@@ -28,7 +28,7 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @album=Album.find(params[:id])
+    @album = Album.find(params[:id])
     if @album.destroy
       redirect_to albums_path
     else

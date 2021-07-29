@@ -3,16 +3,23 @@
   タグ一覧
   <% @tags.each do |tag| %>
     <%= link_to category_path(tag) do %>
-    <span class="badge badge-pill badge-dark">
+    <span class= "badge badge-pill badge-dark">
       <%= tag.tag_name %>
     </span>
     <% end %>
   <% end %>
 </div>
+
+<P>人気の投稿</P>
+<% @ranks.each.with_index(1) do |content, i| %>
+  <%= i %><P>位</P>
+  <%= content.title %>
+<% end %>
+
 <% @contents.each do |content| %>
 <div>
   <%= link_to content_path(content) do %>
-    <%= image_tag content.img.url%>
+    <%= image_tag content.img.url %>
   <% end %>
   <%= content.title%>
   <%= content.introduction%>

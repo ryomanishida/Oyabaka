@@ -1,6 +1,6 @@
 <%= render 'layouts/navber' %>
 
-<%= link_to 'アルバムを追加する', new_content_album_path %>
+<%= link_to "アルバムを追加する", new_content_album_path %>
 <% @albums.each do |album| %>
   <%= link_to album_path(album) do %>
     <%= album.album_name %>
