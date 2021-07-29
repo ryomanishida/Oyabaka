@@ -1,0 +1,7 @@
+<%= render 'layouts/navber' %>
+<% @likes.each do |like| %>
+  <%= link_to content_path(like.content) do %>
+    <%= image_tag like.content.img.url %>
+  <% end %>
+  <%= like.content.title %>
+<% end %>

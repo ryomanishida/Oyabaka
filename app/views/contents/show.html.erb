@@ -3,9 +3,13 @@
 <%= @content.title%>
 <%= @content.introduction%>
 
-<% if @content.user == current_user %>
-  <%= link_to "編集", edit_content_path(@content) %>
-<% end %>
+  <% if @content.user == current_user %>
+    <%= link_to "編集", edit_content_path(@content) %>
+  <% end %>
+
+  <% if current_user.admin %>
+    <%= link_to "編集", edit_content_path(@content) %>
+  <% end %>
 
 <% @content_tags.each do |tag| %>
 <span class="badge badge-pill badge-dark">

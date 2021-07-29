@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">親バカ</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <%= form_with url: search_contents_path, method: :get, local: true do |f| %>
+    <%= f.text_field :title, class: "form-control mr-sm-2" %>
+    <%= f.submit :検索, class: "btn btn-outline-success" %>
+  <% end %>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li>
+        <%= link_to 'Home', search_contents_path %>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">日本語＾ <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a href="/contents/new" class="btn-circle-border-simple">+</a>
+      </li>
+      <li class="nav-item">
+        <% if user_signed_in? && !current_user&.admin %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <% elsif user_signed_in? && current_user&.admin %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <%= link_to "会員一覧", admin_users_path %>
+        <% else %>
+          <%=link_to "アカウント作成", new_user_registration_path, class:'btn btn-top btn-radius' %>
+          <%=link_to "ログイン", new_user_session_path, class:'btn btn2-top btn-radius' %>
+        <% end %>
+      </li>
+
+      <li class="nav-item dropdown">
+        <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <% if current_user.profile_image? %>
+              <%= image_tag current_user.profile_image.url, class:"icon" %>
+          <% else %>
+              <image src="/assets/no_image.jpg" class="icon" %>
+          <% end %>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%#= link_to 'フォロー', , class:"dropdown-item"%>
+          <%= link_to 'マイページ', user_path(current_user.id), class:"dropdown-item"%>
+          <%= link_to 'いいねした投稿', user_likes_path, class:"dropdown-item"%>
+          <%= link_to 'アルバム', albums_path, class:"dropdown-item"%>
+          <%= link_to '設定', edit_user_registration_path(current_user), class:"dropdown-item"%>
+        </div>
+      </li>
+      <%#if current_user.admin? %>
+    </ul>
+  </div>
+</nav>

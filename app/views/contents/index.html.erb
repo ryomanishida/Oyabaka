@@ -1,11 +1,1 @@
-<%= render 'layouts/navber' %>
-コンテンツ一覧
-<% @contents.each do |content| %>
-<div>
-  <%= link_to content_path(content) do %>
-    <%= image_tag content.img.url%>
-  <% end %>
-  <%= content.title%>
-  <%= content.introduction%>
-</div>
-<% end %>
+content_index

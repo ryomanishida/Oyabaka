@@ -1,0 +1,6 @@
+<%= render 'layouts/searchnav' %>
+<% @contents.each do |content| %>
+  <%= image_tag content.img.url%>
+  <%= content.title %>
+  <%= content.introduction %>
+<% end %>

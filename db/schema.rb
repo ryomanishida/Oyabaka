@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_24_112419) do
+ActiveRecord::Schema.define(version: 2021_07_29_025551) do
+
+  create_table "albums", force: :cascade do |t|
+    t.string "album_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "tag_name", null: false
@@ -22,6 +28,13 @@ ActiveRecord::Schema.define(version: 2021_07_24_112419) do
     t.integer "user_id", null: false
     t.integer "content_id", null: false
     t.string "comment", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "content_albums", force: :cascade do |t|
+    t.integer "content_id", null: false
+    t.integer "album_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

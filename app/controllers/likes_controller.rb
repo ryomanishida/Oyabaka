@@ -1,4 +1,9 @@
 class LikesController < ApplicationController
+
+  def show
+    @likes=current_user.likes
+  end
+
   def create
     content=Content.find(params[:content_id])
     like=current_user.likes.new(content_id:content.id)

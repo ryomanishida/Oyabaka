@@ -55,6 +55,15 @@ class ContentsController < ApplicationController
     end
   end
 
+  def search
+    @tags=Category.all
+    if params[:title].present?
+      @contents = Content.where('title LIKE ?', "%#{params[:title]}%")
+    else
+      @contents = Content.all
+    end
+  end
+
   private
 
   def content_params

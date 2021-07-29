@@ -1,3 +1,4 @@
+<%= render 'layouts/navber' %>
 <h1>マイページ</h1>
 <% if @user.profile_image? %>
     <%= image_tag @user.profile_image.url, class:'icon' %>
@@ -6,8 +7,15 @@
 <% end %>
 <%= @user.name %>
 <%= @user.self_introduction %>
-<%= link_to '編集する', edit_user_path(current_user), class:'btn btn-success' %>
-
+<% if @user == current_user %>
+    <%= link_to '編集する', edit_user_path(current_user), class:'btn btn-success' %>
+<% else %>
+    <%= link_to 'アカウントを削除する', adminwithdraw_path(@user), method: :patch, data: {confirm: "会員のアカウントです。本当に削除しますか？"}, class: "btn btn-danger" %>
+<% end %>
+<%= @contents_quantity %>
 <%= link_to '投稿', user_contents_path(@user) %>
-
-<%= link_to 'フォロー', followings_user_path %>
+<% if @user == current_user %>
+    <%= @follow_quantity %>
+    <%= link_to 'フォロー', followings_user_path %>
+    <%= link_to 'アルバム', albums_path %>
+<% end %>

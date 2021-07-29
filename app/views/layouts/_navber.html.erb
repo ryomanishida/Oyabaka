@@ -4,15 +4,13 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
+
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li>
-        <%= link_to 'Home', contents_path %>
+        <%= link_to 'Home', search_contents_path %>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="#">日本語＾ <span class="sr-only">(current)</span></a>
@@ -43,8 +41,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%#= link_to 'フォロー', , class:"dropdown-item"%>
           <%= link_to 'マイページ', user_path(current_user.id), class:"dropdown-item"%>
-          <%= link_to 'いいねした投稿', edit_user_registration_path(current_user), class:"dropdown-item"%>
-          <%= link_to 'アルバム', edit_user_registration_path(current_user), class:"dropdown-item"%>
+          <%= link_to 'いいねした投稿', user_likes_path, class:"dropdown-item"%>
+          <%= link_to 'アルバム', albums_path, class:"dropdown-item"%>
           <%= link_to '設定', edit_user_registration_path(current_user), class:"dropdown-item"%>
         </div>
       </li>
