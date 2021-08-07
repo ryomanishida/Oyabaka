@@ -1,6 +1,15 @@
 <%= render 'layouts/searchnav' %>
-<% @contents.each do |content| %>
-  <%= image_tag content.img.url%>
-  <%= content.title %>
-  <%= content.introduction %>
-<% end %>
+<div class="container my-5">
+  <% @contents.each do |content| %>
+    <%= link_to content_path(content) do %>
+      <%= image_tag content.img.url, class: 'imgs-trim'%>
+    <% end %>
+    <% if content.user.profile_image? %>
+      <%= image_tag content.user.profile_image.url, class:'icon' %>
+    <% else %>
+        <image src="/assets/no_image.jpg" class="icon" %>
+    <% end %>
+    <%= content.title%>
+    <%= content.user.name %>
+  <% end %>
+</div>

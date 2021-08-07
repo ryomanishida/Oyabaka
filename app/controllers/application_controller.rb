@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   end
 
 
+  before_action :set_locale
+
+
   protected
 
   def configure_permitted_parameters
@@ -22,6 +25,12 @@ class ApplicationController < ActionController::Base
     else
       flash[:error] = "必須項目を入力してください。"
     end
+  end
+
+  def set_locale
+   if %w(ja en).include?(session[:locale])
+     I18n.locale = session[:locale]
+   end
   end
 
 end

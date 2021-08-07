@@ -39,8 +39,8 @@ class ContentsController < ApplicationController
     category_list = params[:content][:tag_names].split(",")
     if @content.update(content_params)
       @content.categories_save(category_list)
-      flash[:success] = '投稿を編集しました‼'
-      redirect_to content_path
+      flash[:success] = "投稿を編集しました‼"
+      redirect_to search_contents_path
     else
       render :edit
     end

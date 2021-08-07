@@ -1,27 +1,37 @@
 <%= render 'layouts/searchnav' %>
-<div class= "tags">
-  タグ一覧
+
+<div class= "sidebar">
+  <%= t ("dictionary.words.tag_list") %>
   <% @tags.each do |tag| %>
     <%= link_to category_path(tag) do %>
-    <span class= "badge badge-pill badge-dark">
+    <div class= "badge badge-pill badge-secondary">
       <%= tag.tag_name %>
-    </span>
+    </div>
+    <% end %>
+  <% end %>
+  <%= t ("dictionary.words.ranking") %>
+  <% @ranks.each.with_index(1) do |content, i| %>
+    <%= link_to content_path(content) do %>
+      <%= i %>位
+      <%= content.title %>
     <% end %>
   <% end %>
 </div>
-
-<P>人気の投稿</P>
-<% @ranks.each.with_index(1) do |content, i| %>
-  <%= i %><P>位</P>
-  <%= content.title %>
-<% end %>
-
-<% @contents.each do |content| %>
-<div>
-  <%= link_to content_path(content) do %>
-    <%= image_tag content.img.url %>
-  <% end %>
-  <%= content.title%>
-  <%= content.introduction%>
+<div class= "container">
+  <div class="row">
+    <% @contents.each do |content| %>
+      <div class="col col-3">
+        <%= link_to content_path(content) do %>
+          <%= image_tag content.img.url, class: 'imgs-trim' %>
+        <% end %>
+        <% if content.user.profile_image? %>
+          <%= image_tag content.user.profile_image.url, class:'icon' %>
+        <% else %>
+            <image src="/assets/no_image.jpg" class="icon" %>
+        <% end %>
+        <%= content.title%>
+        <%= content.user.name %>
+      </div>
+    <% end %>
+  </div>
 </div>
-<% end %>

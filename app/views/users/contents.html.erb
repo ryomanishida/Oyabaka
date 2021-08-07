@@ -1,16 +1,18 @@
 <%= render 'layouts/navber' %>
-<% if @user.profile_image? %>
+<div class="container my-5">
+  <% if @user.profile_image? %>
     <%= image_tag @user.profile_image.url, class:'icon' %>
-<% else %>
-    <image src="/assets/no_image.jpg" class="icon" %>
-<% end %>
-<%= @user.name %>
-<%= @user.self_introduction %>
-<%= render 'relationships/follow_button', user: @user %>
-<%= @contents.each do |content| %>
-<%= link_to content_path(content) do %>
-  <%= image_tag content.img.url%>
-<% end %>
-  <%= content.title %>
-  <%= content.introduction %>
-<% end %>
+  <% else %>
+      <image src="/assets/no_image.jpg" class="icon" %>
+  <% end %>
+  <%= @user.name %>
+  <%= @user.self_introduction %>
+  <%= render 'relationships/follow_button', user: @user %>
+  <%= @contents.each do |content| %>
+    <%= link_to content_path(content) do %>
+      <%= image_tag content.img.url, class: 'imgs-trim' %>
+      <%= content.title %>
+    <% end %>
+  <% end %>
+</div>
+

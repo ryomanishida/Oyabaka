@@ -4,7 +4,7 @@
     <title>Oyabaka</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/454b157adc.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,5 +14,15 @@
   </body>
   <footer>
     <%=link_to "About", home_about_path %>
+    <p>© 2021 Oyabaka</p>
+    <% if session[:locale] == "en" || session[:locale].blank? %>
+      <%= link_to "/home/change_language/ja" do %>
+        Japanese/日本語
+      <% end %>
+    <% elsif session[:locale] == "ja" %>
+      <%= link_to "/home/change_language/en" do %>
+        English/英語
+      <% end %>
+    <% end %>
   </footer>
 </html>

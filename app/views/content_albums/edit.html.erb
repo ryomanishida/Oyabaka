@@ -1,0 +1,18 @@
+<%= render 'layouts/navber' %>
+<div class="container my-5">
+  <%= form_with model:[@album, @content_album], local: true do |f| %>
+    <%= f.label :album_name %>
+    <%= f.text_field :album_name %><br/>
+    <div class="d-flex mt-4">
+      <%= f.collection_check_boxes :content_id, @contents, :id, :img do |b| %>
+        <div class="position-relative pr-3">
+          <%= b.label do %>
+            <%= b.check_box class: 'position-absolute checkbox-size-big' %>
+            <%= image_tag b.text.url, class: 'imgs-trim' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <%= f.submit t("helpers.submit.save") %>
+  <% end %>
+</div>

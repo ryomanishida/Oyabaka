@@ -5,4 +5,9 @@ class HomesController < ApplicationController
   def about
   end
 
+
+  def change_language
+   session[:locale] = params[:language]
+   redirect_back(fallback_location: "/")
+  end
 end

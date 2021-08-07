@@ -1,3 +1,38 @@
-<%= @album.album_name %>
-<%= link_to "アルバム削除", album_path(@album), method: :delete %>
-<%= link_to "+", album_add_path %>
+<%= render 'layouts/navber' %>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <%= form_with model:@album, url: album_path(@album), local: true do |f| %>
+            <%= f.label :album_name %>
+            <%= f.text_field :album_name %>
+            <%= f.submit t("helpers.submit.update"), class: "btn btn-primary" %>
+          <% end %>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container my-5">
+  <h3>
+    <%= @album.album_name %>
+  </h3>
+  <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
+    <i class="fas fa-pen"></i>
+  </button>
+  <%= link_to album_path(@album), method: :delete, data: {confirm: "アルバムを削除します。よろしいですか？"}, class: "btn btn-light" do %>
+    <i class="fas fa-trash"></i>
+  <% end %>
+  <%= link_to edit_content_album_path, class: "btn btn-light" do %>
+    <i class="fas fa-sync"></i>
+  <% end %>
+  <% @content_albums.each do |content_album| %>
+    <%= image_tag content_album.content.img.url, class: 'img-trim' %>
+  <% end %>
+</div>
+

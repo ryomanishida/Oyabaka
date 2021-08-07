@@ -1,11 +1,14 @@
 <%= render 'layouts/navber' %>
-<% @followings.each do |user| %>
-  <% if user.profile_image? %>
-      <%= image_tag user.profile_image.url, class: 'icon' %>
-  <% else %>
-      <image src="/assets/no_image.jpg" class="icon" %>
+<div class="container my-5">
+  <% @followings.each do |user| %>
+    <% if user.profile_image? %>
+        <%= image_tag user.profile_image.url, class: 'icon' %>
+    <% else %>
+        <image src="/assets/no_image.jpg" class="icon" %>
+    <% end %>
+    <%= link_to user_contents_path(user) do %>
+      <%= user.name %>
+    <% end %>
   <% end %>
-  <%= link_to user_contents_path(user) do %>
-    <%= user.name %>
-  <% end %>
-<% end %>
+</div>
+

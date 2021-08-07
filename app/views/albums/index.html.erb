@@ -1,8 +1,12 @@
 <%= render 'layouts/navber' %>
-
-<%= link_to "アルバムを追加する", new_content_album_path %>
-<% @albums.each do |album| %>
-  <%= link_to album_path(album) do %>
-    <%= album.album_name %>
+<div class="container my-5">
+  <%= link_to new_content_album_path do %>
+    <i class="fas fa-folder-plus"></i>
   <% end %>
-<% end %>
+  <% @albums.each do |album| %>
+    <%= link_to album_path(album) do %>
+      <%= album.album_name %>
+    <% end %>
+  <% end %>
+</div>
+

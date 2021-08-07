@@ -1,7 +1,15 @@
 <%= render 'layouts/navber' %>
-<% @likes.each do |like| %>
-  <%= link_to content_path(like.content) do %>
-    <%= image_tag like.content.img.url %>
+<div class="container my-5">
+  <% @likes.each do |like| %>
+    <%= link_to content_path(like.content) do %>
+      <%= image_tag like.content.img.url %>
+    <% end %>
+    <% if like.content.user.profile_image? %>
+      <%= image_tag like.content.user.profile_image.url, class:'icon' %>
+    <% else %>
+        <image src="/assets/no_image.jpg" class="icon" %>
+    <% end %>
+    <%= like.content.title%>
+    <%= like.content.user.name %>
   <% end %>
-  <%= like.content.title %>
-<% end %>
+</div>

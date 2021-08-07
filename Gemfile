@@ -70,3 +70,5 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 
 gem 'jquery-ui-rails'
+
+gem 'rails-i18n'

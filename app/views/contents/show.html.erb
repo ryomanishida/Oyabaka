@@ -1,56 +1,63 @@
 <%= render 'layouts/navber' %>
-<%= image_tag @content.img.url%>
-<%= @content.title%>
-<%= @content.introduction%>
+<div class="container my-5">
+  <%= image_tag @content.img.url, class: 'img-trim'%>
+  <%= @content.title%>
+  <%= @content.introduction%>
 
-  <% if @content.user == current_user %>
-    <%= link_to "編集", edit_content_path(@content) %>
+    <% if @content.user == current_user %>
+      <%= link_to t("dictionary.words.edit"), edit_content_path(@content) %>
+    <% end %>
+
+    <% if current_user.admin %>
+      <%= link_to "編集", edit_content_path(@content) %>
+    <% end %>
+
+  <% @content_tags.each do |tag| %>
+  <span class="badge badge-pill badge-dark">
+    <%= tag.tag_name %>
+  </span>
   <% end %>
 
-  <% if current_user.admin %>
-    <%= link_to "編集", edit_content_path(@content) %>
+  <% if @content.liked_by?(current_user) %>
+    <p>
+      <%= link_to content_likes_path(@content), method: :delete do %>
+        ♥<%= @content.likes.count %>
+      <% end %>
+    </p>
+  <% else %>
+    <p>
+      <%= link_to content_likes_path(@content), method: :post do %>
+        ♥<%= @content.likes.count %>
+      <% end %>
+    </p>
   <% end %>
 
-<% @content_tags.each do |tag| %>
-<span class="badge badge-pill badge-dark">
-  <%= tag.tag_name %>
-</span>
-<% end %>
-
-<% if @content.liked_by?(current_user) %>
-  <p>
-    <%= link_to content_likes_path(@content), method: :delete do %>
-      ♥<%= @content.likes.count %> いいね
-    <% end %>
-  </p>
-<% else %>
-  <p>
-    <%= link_to content_likes_path(@content), method: :post do %>
-      ♥<%= @content.likes.count %> いいね
-    <% end %>
-  </p>
-<% end %>
-
-<%= @content.user.name %>
-
-<%= render 'relationships/follow_button', user: @user %>
-
-<div class="comments">
-  <p>コメント：<%= @content.comments.count %></p>
-  <% @content.comments.each do |comment| %>
-    <%= comment.user.name %>
-    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-    <% if comment.user == current_user %>
-      <div class="comment-delete">
-        <%= link_to "削除", content_comment_path(@content, comment), method: :delete %>
-      </div>
-    <% end %>
+  <% if @content.user.profile_image? %>
+    <%= image_tag @content.user.profile_image.url, class:'icon' %>
+  <% else %>
+      <image src="/assets/no_image.jpg" class="icon" %>
   <% end %>
-</div>
+  <%= @content.user.name %>
 
-<div class="new-comment">
-<%= form_with model:[@content, @comment], local: true do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-<% end %>
+  <%= render 'relationships/follow_button', user: @user %>
+
+  <div class="comments">
+    <%= t ("dictionary.words.comment") %>：<%= @content.comments.count %>
+    <% @content.comments.each do |comment| %>
+      <%= comment.user.name %>
+      <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+      <% if comment.user == current_user %>
+        <div class="comment-delete">
+          <%= link_to "削除", content_comment_path(@content, comment), method: :delete %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="new-comment">
+  <%= form_with model:[@content, @comment], local: true do |f| %>
+    <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+    <%= f.submit t("helpers.submit.send") %>
+  <% end %>
+  </div>
 </div>

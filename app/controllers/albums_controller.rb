@@ -6,22 +6,14 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
+    @content_albums = @album.content_albums
   end
 
-  def add
-    @contents = current_user.contents
-  end
-
-  def new
-  end
-
-  def create
-  end
 
   def update
     @album = Album.find(params[:id])
     if @album.update(album_params)
-      redirect_to content_path
+      redirect_to album_path(@album)
     else
       render :show
     end

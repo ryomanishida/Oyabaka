@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     patch '/adminwithdraw' => 'users#adminwithdraw'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get "/home/change_language/:language" => "homes#change_language"
   root to: 'homes#top'
   get 'home/about', to: 'homes#about'
 
@@ -33,10 +34,10 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  resources :content_albums, only: [:new, :create]
+  resources :content_albums, only: [:new, :create, :edit, :update]
+
 
   resources :albums
-  get '/album/add', to: 'albums#add'
 
   resources :categories, only: [:show]
 

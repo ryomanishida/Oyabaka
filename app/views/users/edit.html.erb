@@ -1,16 +1,19 @@
 <%= render 'layouts/navber' %>
-ユーザー編集
-<%= form_with model:@user, url:user_path, local:true do |f| %>
-<% if @user.profile_image? %>
-    <%= image_tag @user.profile_image.url, class:'icon' %>
-<% else %>
-    <image src="/assets/no_image.jpg" class="icon" %>
-<% end %>
-  <%= f.label :画像 %><br />
-  <%= f.file_field :profile_image %>
-  <%= f.label :名前 %>
-  <%= f.text_field :name %>
-  <%= f.label :自己紹介 %>
-  <%= f.text_area :self_introduction %>
-  <%= f.submit "変更を保存" %>
-<% end %>
+<%= render 'layouts/user_error' %>
+<div class="container my-5">
+  <h2><%= t("dictionary.words.user_edit") %></h2>
+  <%= form_with model:@user, url:user_path, local:true do |f| %>
+  <% if @user.profile_image? %>
+      <%= image_tag @user.profile_image.url, class:'icon' %>
+  <% else %>
+      <image src="/assets/no_image.jpg" class="icon" %>
+  <% end %>
+    <%= f.label :profile_image, "File", class: "image_input_btn" %><br />
+    <%= f.file_field :profile_image, class: "image_form" %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :self_introduction %>
+    <%= f.text_area :self_introduction %>
+    <%= f.submit t("dictionary.button.save") %>
+  <% end %>
+</div>
