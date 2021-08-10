@@ -14,9 +14,9 @@ class ProfileImageUploader < CarrierWave::Uploader::Base
   end
 
   #サムネイルを生成
-  version :thumb do
-    process :resize_to_limit => [300, 300]
-  end
+  # version :thumb do
+  #   process :resize_to_limit => [300, 300]
+  # end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)

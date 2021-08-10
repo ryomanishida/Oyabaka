@@ -8,8 +8,8 @@ class ContentAlbumsController < ApplicationController
   def create
     @album = Album.new#アルバム名
     @album.album_name = params[:content_album][:album_name]
+    @album.user_id = current_user.id
     @album.save
-
 
     arr = params[:content_album][:content_id]
     arr.delete_at(0)#チェックボックスの１つ目の空を除去
@@ -25,12 +25,23 @@ class ContentAlbumsController < ApplicationController
   def edit
     @contents = current_user.contents
     @content_album = ContentAlbum.new
-    # 既存のデータを取得したい
-    @album = Album.find(params[:id])
+    @content_albums = ContentAlbum.find(params[:id])# 既存のデータを取得
   end
 
   def update
-    # 既存のデータ以外があればcontentalbumについか
+    @content_albums = ContentAlbum.find(params[:id])
+    album = @content_albums.album
+    arr = params[:content_album][:content_id]
+    arr.delete_at(0)
+    content_ids = album.content_albums.pluck(:content_id)
+    album.content_albums.where(content_id: content_ids-arr).destroy_all#チェックを外した時データを削除
+    arr.each do |content_id|
+      if album.content_albums.where(content_id: content_id).blank?#新規チェックが入ったとき
+        content_album = album.content_albums.new(content_id: content_id)
+        content_album.save
+      end
+    end
+    redirect_to albums_path
   end
 
 

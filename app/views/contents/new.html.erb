@@ -1,19 +1,24 @@
 <%= render 'layouts/navber' %>
 <%= render 'layouts/content_error' %>
-<div class="container my-5">
-  <%= form_with model:@content, local:true do |f| %>
-    <%= f.label :img, "File", class: "image_input_btn" %><br>
-    <%= f.file_field :img, class: "image image_form" %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :introduction %>
-    <%= f.text_area :introduction %>
-
-    <h6><%= t ".ex) dog,food,cute" %></h6>
-    <div class="field">
-      <%= f.label :tag %>
-      <%= f.text_field :tag_names, placeholder: t("contents.new.please separate with,") %>
+<div class="containar my-5">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-auto shadow-lg my-5">
+      <h5 class="form-title bg-light p-4">画像投稿フォーム</h5>
+      <div class="form-body p-4">
+        <%= form_with model:@content, local:true do |f| %>
+          <%= f.label :img, "File", class: "image_input_btn w-50" %><br>
+          <%= f.file_field :img, class: "image image_form" %>
+            <%= f.label :title %>
+            <%= f.text_field :title, class:"form-control" %>
+            <%= f.label :introduction %>
+            <%= f.text_area :introduction, class:"form-control" %>
+            <hr>
+            <%= t ".ex) dog,food,cute" %>
+            <%= f.label :tag %>
+            <%= f.text_field :tag_names, placeholder: t("contents.new.please separate with,") %>
+          <%= f.submit t("dictionary.button.create"), class: "btn btn-lg btn-block btn-info mt-4" %>
+        <% end %>
+      </div>
     </div>
-    <%= f.submit t("dictionary.button.create") %>
-  <%end%>
+  </div>
 </div>

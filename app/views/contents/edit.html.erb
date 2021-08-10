@@ -12,5 +12,5 @@
     <%= f.text_area :introduction %>
     <%= f.submit t("dictionary.button.update")%>
   <%end%>
-<%= link_to t("dictionary.button.delete"), content_path(@content), method: :delete %>
+<%= link_to t("dictionary.button.delete"), content_path(@content), method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"}, class: "btn btn-danger" %>
 </div>

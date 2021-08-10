@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
 
   def index
-    @albums = Album.all
+    @albums = Album.where(user_id: current_user.id)
   end
 
   def show
@@ -30,6 +30,6 @@ class AlbumsController < ApplicationController
 
   private
   def album_params
-    params.require(:album).permit(:album_name)
+    params.require(:album).permit(:album_name, :user_id)
   end
 end

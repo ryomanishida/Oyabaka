@@ -1,13 +1,18 @@
-<%= image_tag 'animal-1238238.jpg', class: "sized" %>
-
-  <h2><%= t("dictionary.sentence.healing is here") %></h2>
-  <h3><%= t("dictionary.sentence.play the oyabaka") %></h3>
-  <% if user_signed_in? %>
-    <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to t("dictionary.button.signup"), new_user_registration_path, class: "btn btn-outline-primary" %>
-    <%= link_to t("dictionary.button.login"), new_user_session_path, class: "btn btn-primary" %>
-  <% end %>
-  <%= link_to t("dictionary.button.GoApp"), search_contents_path, class: "btn btn-outline-dark" %>
+<main>
+  <div class="main-container">
+    <%= image_tag 'topimage.jpg', class: "img-trim" %>
+    <div class="col d-flex align-items-center">
+      <h2><%= t("dictionary.sentence.healing is here") %></h2>
+      <h3><%= t("dictionary.sentence.play the oyabaka") %></h3>
+      <% if user_signed_in? %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to t("dictionary.button.signup"), new_user_registration_path, class: "btn btn-outline-primary" %>
+        <%= link_to t("dictionary.button.login"), new_user_session_path, class: "btn btn-primary" %>
+      <% end %>
+      <%= link_to t("dictionary.button.GoApp"), search_contents_path, class: "btn btn-outline-dark" %>
+    </div>
+  </div>
+</main>
 
 

@@ -3,10 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @contents_quantity = current_user.contents.count
     @follow_quantity = current_user.followings.count
-  end
-
-  def edit
-    @user = User.find(params[:id])
+    @followings = current_user.followings
   end
 
   def update
@@ -39,6 +36,7 @@ class UsersController < ApplicationController
   def contents
     @user = User.find(params[:id])
     @contents = @user.contents
+    #p "42 #{@contents}"
   end
 
   def likes

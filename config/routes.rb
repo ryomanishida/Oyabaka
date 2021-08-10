@@ -9,11 +9,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'home/about', to: 'homes#about'
 
-  resources :users, only: [:show, :edit, :update] do
-    member do
-     get :followings
-    end
-  end
+  resources :users, only: [:show, :update]
   get 'user/:id/contents', to: 'users#contents', as: 'user_contents'
   get 'user/likes', to: 'users#likes', as: 'user_likes'
 
@@ -37,7 +33,7 @@ Rails.application.routes.draw do
   resources :content_albums, only: [:new, :create, :edit, :update]
 
 
-  resources :albums
+  resources :albums, only: [:index, :show, :update, :destroy]
 
   resources :categories, only: [:show]
 

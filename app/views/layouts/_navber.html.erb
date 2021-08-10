@@ -4,94 +4,94 @@
       <image src="/assets/linkedin_banner_image_1.png" width="120" height="60" >
     <% end %>
     <div class="container">
-
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="row">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <% if user_signed_in? && !current_user&.admin %>
-            　　<li class="nav-item col">
-                  <%= link_to new_content_path do %>
-                    <i class="fas fas-size-big fa-plus-square"></i>
-                  <% end %>
-                </li>
-                <li class="nav-item col">
-                  <%= link_to destroy_user_session_path, method: :delete do %>
-                    <i class="fas fas-size-big fa-sign-out-alt"></i>
-                  <% end %>
-                </li>
-                <li class="nav-item dropdown">
-                  <div class="nav-link dropdown-toggle col" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <% if current_user.profile_image? %>
-                        <%= image_tag current_user.profile_image.url, class: "icon" %>
-                    <% else %>
-                        <image src="/assets/no_image.jpg" class="icon" >
-                    <% end %>
-                  </div>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <%= link_to user_path(current_user.id), class: "dropdown-item" do %>
-                      <i class="fas fa-user">マイページ</i>
-                    <% end %>
-                    <%= link_to user_likes_path, class: "dropdown-item" do %>
-                      <i class="fas fa-heart">いいね</i>
-                    <% end %>
-                    <%= link_to albums_path, class:"dropdown-item" do %>
-                      <i class="fas fa-folder">アルバム</i>
-                    <% end %>
-                    <%= link_to edit_user_registration_path(current_user), class: "dropdown-item" do %>
-                      <i class="fas fa-cog">設定</i>
-                    <% end %>
-                  </div>
-                </li>
-            <% elsif user_signed_in? && current_user&.admin %>
-                <li class="nav-item">
-                  <%= link_to new_content_path do %>
-                    <i class="fas fas-size-big fa-plus-square"></i>
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to destroy_user_session_path, method: :delete do %>
-                    <i class="fas fas-size-big fa-sign-out-alt"></i>
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to admin_users_path do %>
-                    <i class="fas fas-size-big fa-users"></i>
-                  <% end %>
-                </li>
-                <li class="nav-item dropdown">
-                  <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <% if current_user.profile_image? %>
-                        <%= image_tag current_user.profile_image.url, class: "icon" %>
-                    <% else %>
-                        <image src="/assets/no_image.jpg" class="icon" >
-                    <% end %>
-                  </div>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <%= link_to user_path(current_user.id), class: "dropdown-item" do %>
-                      <i class="fas fa-user">マイページ</i>
-                    <% end %>
-                    <%= link_to edit_user_registration_path(current_user), class: "dropdown-item" do %>
-                      <i class="fas fa-cog"></i>
-                    <% end %>
-                  </div>
-                </li>
-            <% else %>
-                <li class="nav-item">
-                  <%=link_to new_user_registration_path do %>
-                    <i class="fas fas-size-big fa-user-plus"></i>
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%=link_to new_user_session_path do %>
-                    <i class="fas fas-size-big fa-sign-in-alt"></i>
-                  <% end %>
-                </li>
-            <% end %>
-          </ul>
+      <div class="row ml-5">
+        <div class="col ml-5">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <% if user_signed_in? && !current_user&.admin %>
+                　　<li class="nav-item">
+                      <%= link_to new_content_path do %>
+                        <i class="fas fas-size-big fa-plus-square mx-4 mt-4"></i>
+                      <% end %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to destroy_user_session_path, method: :delete do %>
+                        <i class="fas fas-size-big fa-sign-out-alt mx-4 mt-4"></i>
+                      <% end %>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <% if current_user.profile_image? %>
+                            <%= image_tag current_user.profile_image.url, class: "icon" %>
+                        <% else %>
+                            <image src="/assets/no_image.jpg" class="icon" >
+                        <% end %>
+                      </div>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <%= link_to user_path(current_user.id), class: "dropdown-item" do %>
+                          <i class="fas fa-user">マイページ</i>
+                        <% end %>
+                        <%= link_to user_likes_path, class: "dropdown-item" do %>
+                          <i class="fas fa-heart">いいね</i>
+                        <% end %>
+                        <%= link_to albums_path, class:"dropdown-item" do %>
+                          <i class="fas fa-folder">アルバム</i>
+                        <% end %>
+                        <%= link_to edit_user_registration_path(current_user), class: "dropdown-item" do %>
+                          <i class="fas fa-cog">設定</i>
+                        <% end %>
+                      </div>
+                    </li>
+                <% elsif user_signed_in? && current_user&.admin %>
+                    <li class="nav-item">
+                      <%= link_to new_content_path do %>
+                        <i class="fas fas-size-big fa-plus-square mx-4 mt-4"></i>
+                      <% end %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to destroy_user_session_path, method: :delete do %>
+                        <i class="fas fas-size-big fa-sign-out-alt mx-4 mt-4"></i>
+                      <% end %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to admin_users_path do %>
+                        <i class="fas fas-size-big fa-users mx-4 mt-4"></i>
+                      <% end %>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <% if current_user.profile_image? %>
+                            <%= image_tag current_user.profile_image.url, class: "icon" %>
+                        <% else %>
+                            <image src="/assets/no_image.jpg" class="icon" >
+                        <% end %>
+                      </div>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <%= link_to user_path(current_user.id), class: "dropdown-item" do %>
+                          <i class="fas fa-user">マイページ</i>
+                        <% end %>
+                        <%= link_to edit_user_registration_path(current_user), class: "dropdown-item" do %>
+                          <i class="fas fa-cog"></i>
+                        <% end %>
+                      </div>
+                    </li>
+                <% else %>
+                    <li class="nav-item">
+                      <%=link_to new_user_registration_path do %>
+                        <i class="fas fas-size-big fa-user-plus mx-4 mt-4"></i>
+                      <% end %>
+                    </li>
+                    <li class="nav-item">
+                      <%=link_to new_user_session_path do %>
+                        <i class="fas fas-size-big fa-sign-in-alt mx-4 mt-4"></i>
+                      <% end %>
+                    </li>
+                <% end %>
+              </ul>
+            </div>
         </div>
       </div>
     </div>

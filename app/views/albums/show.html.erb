@@ -8,7 +8,7 @@
           <%= form_with model:@album, url: album_path(@album), local: true do |f| %>
             <%= f.label :album_name %>
             <%= f.text_field :album_name %>
-            <%= f.submit t("helpers.submit.update"), class: "btn btn-primary" %>
+            <%= f.submit t("dictionary.button.update"), class: "btn btn-primary" %>
           <% end %>
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -19,20 +19,30 @@
   </div>
 </div>
 <div class="container my-5">
-  <h3>
-    <%= @album.album_name %>
-  </h3>
-  <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
-    <i class="fas fa-pen"></i>
-  </button>
-  <%= link_to album_path(@album), method: :delete, data: {confirm: "アルバムを削除します。よろしいですか？"}, class: "btn btn-light" do %>
-    <i class="fas fa-trash"></i>
-  <% end %>
-  <%= link_to edit_content_album_path, class: "btn btn-light" do %>
-    <i class="fas fa-sync"></i>
-  <% end %>
-  <% @content_albums.each do |content_album| %>
-    <%= image_tag content_album.content.img.url, class: 'img-trim' %>
-  <% end %>
+  <div class="row">
+    <h3>
+      <%= @album.album_name %>
+    </h3>
+    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
+      <i class="fas fa-pen"></i>
+    </button>
+    <%= link_to album_path(@album), method: :delete, data: {confirm: "アルバムを削除します。よろしいですか？"}, class: "btn btn-light" do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+    <%= link_to edit_content_album_path(ContentAlbum.where(album_id: @album.id).first.id), class: "btn btn-light" do %>
+      <i class="fas fa-sync"></i>
+    <% end %>
+  </div>
+  <div class="d-flex">
+    <div class="row mt-5">
+      <% @content_albums.each do |content_album| %>
+        <div class="col">
+          <div class="mx-3 my-5 shadow-lg" style="width: 18rem;">
+            <%= image_tag content_album.content.img.url, class: "imgs-trim width=100%" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
