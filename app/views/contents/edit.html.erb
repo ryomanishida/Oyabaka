@@ -1,16 +1,26 @@
+
 <%= render 'layouts/navber' %>
 <%= render 'layouts/content_error' %>
-<div class="container my-5">
-  <%= form_with model:@content, local:true do |f| %>
-    <%= f.label :img, "File", class: "image_input_btn" %>
-    <%= f.file_field :img, class: "image image_form" %><br>
-    <%= f.label :tag %>
-    <%= f.text_field :tag_names, value: @content_tags, placeholder:",で区切ってください" %><br>
-    <%= f.label :title %>
-    <%= f.text_field :title %><br>
-    <%= f.label :introduction %>
-    <%= f.text_area :introduction %>
-    <%= f.submit t("dictionary.button.update")%>
-  <%end%>
-<%= link_to t("dictionary.button.delete"), content_path(@content), method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"}, class: "btn btn-danger" %>
+<div class="containar my-5">
+  <div class="row no-gutters">
+    <div class="col-md-5 col-sm-10 mx-auto shadow-lg my-5">
+      <h5 class="form-title bg-light p-4">画像投稿フォーム</h5>
+      <div class="form-body p-4">
+        <%= form_with model:@content, local:true do |f| %>
+          <%= f.label :img, "File", class: "image_input_btn w-50" %><br>
+          <%= f.file_field :img, class: "image image_form" %>
+          <%= f.label :title %>
+          <%= f.text_field :title, class:"form-control" %>
+          <%= f.label :introduction %>
+          <%= f.text_area :introduction, class:"form-control" %>
+          <%= t ".ex) dog,food,cute" %>
+          <%= f.label :tag %>
+          <%= f.text_field :tag_names, placeholder: t("contents.new.please separate with,") %>
+          <hr>
+          <%= link_to t("dictionary.button.delete"), content_path(@content), method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"}, class: "btn btn-danger mr-5" %>
+          <%= f.submit t("dictionary.button.update"), class: "btn btn-info ml-5" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

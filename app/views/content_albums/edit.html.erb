@@ -1,6 +1,6 @@
 <%= render 'layouts/navber' %>
 <div class="container my-5">
-  <%= form_with model:@content_album,url: content_album_path(@content_albums), method: :patch, local: true do |f| %>
+  <%= form_with model:@content_album,url: content_album_path(@album_id ), method: :patch, local: true do |f| %>
     <div class="d-flex">
       <div class="row ml-5 my-4">
       <%= f.collection_check_boxes :content_id, @contents, :id, :img do |b| %>
@@ -19,7 +19,7 @@
 
 <!--既存のデータにチェックを入れる-->
 <script>
-  <% Album.find(@content_albums.album_id).content_albums.each do |v| %>
+  <% ContentAlbum.where(album_id:@album_id).each do |v| %>
     console.log('<%= v.content.title %>')
     $('#content_album_content_id_<%= v.content.id %>').prop('checked', true);
   <% end %>

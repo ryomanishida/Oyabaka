@@ -1,8 +1,20 @@
 <%= render 'layouts/navber' %>
-<div class="container">
-  <% @users.each do |user| %>
-    <%= link_to user_path(user) do %>
-      <%= user.name %>
-    <% end %>
-  <% end %>
+<div class="container my-5">
+    <table class="table">
+      <thead class="thead">
+        <tr>
+          <th>名前</th>
+          <th>メールアドレス</th>
+          <th>アカウント作成日</th>
+        </tr>
+        <% @users.each do |user| %>
+          <tr>
+              <th><%= user.name %></th>
+              <th><%= user.email %></th>
+              <th><%= user.created_at %></th>
+              <th><%= link_to "投稿", user_contents_path(user), class:"btn btn-success" %></th>
+          </tr>
+        <% end %>
+      </thead>
+    </table>
 </div>

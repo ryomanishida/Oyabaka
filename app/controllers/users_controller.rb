@@ -11,7 +11,10 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
-      render :edit
+      @contents_quantity = current_user.contents.count
+      @follow_quantity = current_user.followings.count
+      @followings = current_user.followings
+      render :show
     end
   end
 

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
     search_contents_path
   end
 
+  before_action :authenticate_user!,except: [:top, :about, :change_language, :search]
 
   before_action :set_locale
 

@@ -5,12 +5,12 @@
     <% end %>
     <div class="container">
       <div class="row ml-5">
-        <div class="col mr-5">
-          <%= form_with url: search_contents_path, method: :get, local: true do |f| %>
-            <%= f.text_field :title, class: "form-control" %>
-            <%= f.submit t("dictionary.button.search"), class: "btn btn-outline-secondary" %>
-          <% end %>
+        <%= form_with url: search_contents_path, method: :get, local: true do |f| %>
+        <div class="d-flex mt-3 mr-5">
+          <%= f.text_field :title, placeholder: "Title", class: "form-control" %>
+          <%= f.submit t("dictionary.button.search"), class: "btn btn-outline-secondary" %>
         </div>
+        <% end %>
         <div class="col ml-5">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

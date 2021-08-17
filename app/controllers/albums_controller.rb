@@ -15,6 +15,7 @@ class AlbumsController < ApplicationController
     if @album.update(album_params)
       redirect_to album_path(@album)
     else
+      @content_albums = @album.content_albums
       render :show
     end
   end

@@ -1,9 +1,13 @@
 class ContentsController < ApplicationController
-
-  def index
-    @contents = Content.all
+  def search
+    @ranks = Content.find(Like.group(:content_id).order('count(content_id) desc').limit(3).pluck(:content_id))
+    @tags = Category.all
+    if params[:title].present?
+      @contents = Content.where('title LIKE ?', "%#{params[:title]}%")
+    else
+      @contents = Content.all
+    end
   end
-
 
   def new
     @content = Content.new
@@ -40,7 +44,7 @@ class ContentsController < ApplicationController
     if @content.update(content_params)
       @content.categories_save(category_list)
       flash[:success] = "投稿を編集しました‼"
-      redirect_to search_contents_path
+      redirect_to content_path(@content)
     else
       render :edit
     end
@@ -52,16 +56,6 @@ class ContentsController < ApplicationController
       redirect_to contents_path
     else
       render :edit
-    end
-  end
-
-  def search
-    @ranks = Content.find(Like.group(:content_id).order('count(content_id) desc').limit(3).pluck(:content_id))
-    @tags = Category.all
-    if params[:title].present?
-      @contents = Content.where('title LIKE ?', "%#{params[:title]}%")
-    else
-      @contents = Content.all
     end
   end
 

@@ -3,13 +3,11 @@
   <div class="row my-4">
     <h5><%= t ("dictionary.words.tag_list") %></h5>
     <% @tags.each do |tag| %>
-      <div class="col-1">
-        <%= link_to category_path(tag) do %>
-        <div class= "badge badge-pill badge-secondary">
+      <%= link_to category_path(tag) do %>
+        <div class= "badge badge-pill badge-secondary ml-1">
           <%= tag.tag_name %>
         </div>
-        <% end %>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <h2><%= t ("dictionary.words.ranking") %></h2>

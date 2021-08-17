@@ -1,0 +1,9 @@
+<% if @album.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @album.errors.full_messages.each do |message| %>
+        <li class="error_message"><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

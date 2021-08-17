@@ -3,16 +3,22 @@ class ContentAlbumsController < ApplicationController
   def new
     @content_album = ContentAlbum.new
     @contents = current_user.contents
+    @album = Album.new
   end
 
   def create
-    @album = Album.new#アルバム名
+    @album = Album.new#アルバムの保存
     @album.album_name = params[:content_album][:album_name]
     @album.user_id = current_user.id
-    @album.save
 
-    arr = params[:content_album][:content_id]
-    arr.delete_at(0)#チェックボックスの１つ目の空を除去
+    if !!!@album.save
+      @contents = current_user.contents
+      render :new
+      return
+    end
+
+    arr = params[:content_album][:content_id]#コンテンツの保存
+    arr.delete_at(0)#配列の１つ目の空を除去
     arr.each do |content_id|
       @content_album = ContentAlbum.new
       @content_album.content_id = content_id.to_i
@@ -25,12 +31,11 @@ class ContentAlbumsController < ApplicationController
   def edit
     @contents = current_user.contents
     @content_album = ContentAlbum.new
-    @content_albums = ContentAlbum.find(params[:id])# 既存のデータを取得
+    @album_id = params[:album_id]
   end
 
   def update
-    @content_albums = ContentAlbum.find(params[:id])
-    album = @content_albums.album
+    album = Album.find(params[:album_id])
     arr = params[:content_album][:content_id]
     arr.delete_at(0)
     content_ids = album.content_albums.pluck(:content_id)

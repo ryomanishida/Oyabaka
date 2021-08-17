@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     get :search, on: :collection
   end
 
-
   namespace :admin do
     resources :users
   end
@@ -30,8 +29,9 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  resources :content_albums, only: [:new, :create, :edit, :update]
-
+  resources :content_albums, only: [:new, :create]
+  patch '/content_albums/:album_id', to: 'content_albums#update', as: 'content_album'
+  get '/album/:album_id/content_albums_edit', to: 'content_albums#edit', as: 'edit_content_album'
 
   resources :albums, only: [:index, :show, :update, :destroy]
 

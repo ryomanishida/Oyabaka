@@ -32,9 +32,10 @@
 en:
   dictionary:
     button:
-      GoApp: "GoApp"
-      login: "login"
-      signup: "signup"
+      go_app: "Go App"
+      log_in: "Log in"
+      log_out: "Log out"
+      sign_up: "Sign up"
       create: "create"
       save: "save"
       update: "update"

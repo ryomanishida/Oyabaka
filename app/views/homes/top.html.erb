@@ -1,18 +1,21 @@
-<main>
-  <div class="main-container">
-    <%= image_tag 'topimage.jpg', class: "img-trim" %>
-    <div class="col d-flex align-items-center">
-      <h2><%= t("dictionary.sentence.healing is here") %></h2>
-      <h3><%= t("dictionary.sentence.play the oyabaka") %></h3>
-      <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to t("dictionary.button.signup"), new_user_registration_path, class: "btn btn-outline-primary" %>
-        <%= link_to t("dictionary.button.login"), new_user_session_path, class: "btn btn-primary" %>
-      <% end %>
-      <%= link_to t("dictionary.button.GoApp"), search_contents_path, class: "btn btn-outline-dark" %>
+<div class="container my-5">
+  <div class="d-flex align-items-center">
+    <%= image_tag 'top.jpg',class: "topimage mt-5" %>
+    <div class="row mt-5">
+      <div class="col">
+        <div class="top-menu ml-5">
+          <h3><%= t("dictionary.sentence.healing is here") %><br><%= t("dictionary.sentence.play the oyabaka") %></h3>
+          <% if user_signed_in? %>
+            <%= link_to t("dictionary.button.log_out"), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary mx-3 mt-3" %><br>
+          <% else %>
+            <%= link_to t("dictionary.button.log_in"), new_user_session_path, class: "btn btn-primary mx-3 mt-3 mb-2" %><br>
+            <%= link_to t("dictionary.button.sign_up"), new_user_registration_path, class: "btn btn-outline-primary mx-3 my-2" %><br>
+          <% end %>
+          <%= link_to t("dictionary.button.go_app"), search_contents_path, class: "btn btn-outline-dark mx-3 my-2" %>
+        </div>
+      </div>
     </div>
   </div>
-</main>
+</div>
 
 

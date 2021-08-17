@@ -1,9 +1,9 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to t("dictionary.button.login"), new_session_path(resource_name) %><br />
+  <%= link_to t("dictionary.button.log_in"), new_session_path(resource_name) %><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to t("dictionary.button.signup"), new_registration_path(resource_name) %><br />
+  <%= link_to t("dictionary.button.sign_up"), new_registration_path(resource_name) %><br />
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>

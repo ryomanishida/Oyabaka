@@ -1,9 +1,10 @@
 ja:
   dictionary:
     button:
-      GoApp: "アプリへ"
-      login: "ログイン"
-      signup: "アカウント作成"
+      go_app: "アプリへ"
+      log_in: "ログイン"
+      log_out: "ログアウト"
+      sign_up: "アカウント作成"
       create: "登録する"
       update: "更新する"
       save: "保存する"

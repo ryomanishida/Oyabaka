@@ -1,12 +1,15 @@
 <%= render 'layouts/navber' %>
 <div class="container my-5">
-
-  <% if current_user.admin %>
-    <%= link_to "編集", edit_content_path(@content) %>
-  <% end %>
-  <%= image_tag @content.img.url, class: 'img-trim'%>
   <div class="row">
-    <div class="col mx-3 my-5">
+    <div class="col">
+      <% if current_user.admin %>
+        <%= link_to "編集", edit_content_path(@content) %>
+      <% end %>
+      <%= image_tag @content.img.url, class: 'img-trim'%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mx-3 my-4">
       <%= @content.created_at %>
       <% @content_tags.each do |tag| %>
       <span class="badge badge-pill badge-dark">
@@ -17,51 +20,57 @@
       <h4><%= @content.title%></h4>
       <%= @content.introduction %>
       <hr>
-      <% if @user.profile_image? %>
-        <%= image_tag @user.profile_image.url, class:'icon' %>
-      <% else %>
-          <image src="/assets/no_image.jpg" class="icon" %>
-      <% end %>
-      <%= @user.name %>
-      <%= render 'relationships/follow_button', user: @user %>
-      <%= t ("dictionary.words.comment") %>：<%= @content.comments.count %>
-      <% if @content.liked_by?(current_user) %>
-        <p>
-          <%= link_to content_likes_path(@content), method: :delete do %>
-            ♥<%= @content.likes.count %>
+      <div class="d-flex">
+        <div class="mr-3">
+          <% if @user.profile_image? %>
+            <%= image_tag @user.profile_image.url, class:'icon' %>
+          <% else %>
+              <image src="/assets/no_image.jpg" class="icon" %>
           <% end %>
-        </p>
-      <% else %>
-        <p>
-          <%= link_to content_likes_path(@content), method: :post do %>
-            ♥<%= @content.likes.count %>
+          <%= @user.name %>
+        </div>
+        <div class="mr-5">
+          <%= render 'relationships/follow_button', user: @user %>
+        </div>
+        <div class="mr-5">
+          <%= t ("dictionary.words.comment") %>：<%= @content.comments.count %>
+        </div>
+        <div class="mr-5">
+          <% if @content.liked_by?(current_user) %>
+            <p>
+              <%= link_to content_likes_path(@content), method: :delete do %>
+                ♥<%= @content.likes.count %>
+              <% end %>
+            </p>
+          <% else %>
+            <p>
+              <%= link_to content_likes_path(@content), method: :post do %>
+                ♥<%= @content.likes.count %>
+              <% end %>
+            </p>
           <% end %>
-        </p>
-      <% end %>
-      <% if @user == current_user %>
-        <%= link_to t("dictionary.words.edit"), edit_content_path(@content) %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="new-comment">
-    <%= form_with model:[@content, @comment], local: true do |f| %>
-      <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class:"form-control" %>
-      <%= f.submit t("dictionary.button.send"), class: "btn btn-block btn-info mt-4" %>
-    <% end %>
-    </div>
-    <hr>
-    <div class="comments">
-      <% @content.comments.each do |comment| %>
-        <%= comment.user.name %>
-        <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-        <% if comment.user == current_user %>
-          <div class="comment-delete">
-            <%= link_to "削除", content_comment_path(@content, comment), method: :delete %>
-          </div>
+        </div>
+        <% if @user == current_user %>
+          <%= link_to t("dictionary.words.edit"), edit_content_path(@content) %>
         <% end %>
-      <% end %>
+      </div>
+      <div class="d-flex mt-3 mb-5">
+        <%= form_with model:[@content, @comment], local: true do |f| %>
+          <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "form-control" %>
+          <%= f.submit t("dictionary.button.send"), class: "btn btn-block btn-info mt-4" %>
+        <% end %>
+      </div>
+      <div class="comments">
+        <% @content.comments.each do |comment| %>
+          <%= comment.user.name %>
+          <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+          <% if comment.user == current_user %>
+            <div class="comment-delete">
+              <%= link_to "削除", content_comment_path(@content, comment), method: :delete %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@
 
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "mb-3" %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -14,17 +14,17 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :new_password %>：<%= t("dictionary.sentence.Leave blank if not changed") %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.label :new_password %>：<%= t("dictionary.sentence.Leave blank if not changed") %>
       <% if @minimum_password_length %>
         <br />
         <em><%= @minimum_password_length %> 文字以上</em>
-      <% end %>
+      <% end %><br>
+      <%= f.password_field :password, autocomplete: "new-password",class: "mb-3" %>
     </div>
 
     <div class="field">
       <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "mb-3" %>
     </div>
 
     <div class="field">
@@ -33,7 +33,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit t("dictionary.button.update") %>
+      <%= f.submit t("dictionary.button.update"), class: "btn btn-success my-3"%>
     </div>
   <% end %>
 

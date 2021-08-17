@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_08_07_083016) do
   end
 
   create_table "content_albums", force: :cascade do |t|
-    t.integer "content_id", null: false
+    t.integer "content_id"
     t.integer "album_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

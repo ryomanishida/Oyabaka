@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :user
 
   validates :name, presence: true, length: { maximum: 20 }
+  validates :self_introduction, length: { maximum: 100 }
 
   def follow(other_user)
     unless self == other_user
@@ -37,6 +38,5 @@ class User < ApplicationRecord
   end
 
   mount_uploader :profile_image, ProfileImageUploader
-
 
 end
