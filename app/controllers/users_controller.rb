@@ -25,13 +25,6 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def adminwithdraw
-    @user.update(is_active: false)
-    reset_session
-    flash[:notice] = "会員のアカウントを削除しました"
-    redirect_to admin_users_path
-  end
-
   def followings
     @followings = current_user.followings
   end
@@ -49,6 +42,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :self_introduction, :profile_image)
+    params.require(:user).permit(:name, :self_introduction, :profile_image, :email, :password, :password_confirmation)
   end
 end

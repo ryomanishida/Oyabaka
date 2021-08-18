@@ -1,7 +1,9 @@
 
 <%= render 'layouts/navber' %>
-<%= render 'layouts/content_error' %>
 <div class="containar my-5">
+  <% flash.each do |danger, message| %>
+    <%= message %>
+  <% end %>
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-auto shadow-lg my-5">
       <h5 class="form-title bg-light p-4">画像投稿フォーム</h5>

@@ -1,5 +1,8 @@
 <%= render 'layouts/navber' %>
-<%= render 'layouts/content_error' %>
+<% flash.each do |danger, message| %>
+  <%= message %>
+<% end %>
+
 <div class="containar my-5">
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-auto shadow-lg my-5">

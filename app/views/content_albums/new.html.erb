@@ -1,5 +1,7 @@
 <%= render 'layouts/navber' %>
-<%= render 'layouts/album_error' %>
+<% flash.each do |danger, message| %>
+  <%= message %>
+<% end %>
 <div class="container my-5">
   <%= form_with model:@content_album, local: true do |f| %>
     <%= f.label :album_name %>

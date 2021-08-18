@@ -1,18 +1,25 @@
 <%= render 'layouts/navber' %>
+<% flash.each do |notice, message| %>
+  <%= message %>
+<% end %>
+
 <div class="container my-5">
   <h2><%= t("dictionary.words.edit") %></h2>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-
+  <%= form_for(resource, as: resource_name, url: user_registration_path, html: { method: :put }) do |f| %>
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "mb-3" %>
     </div>
+    <div class="actions">
+      <%= f.submit t("dictionary.button.update"), class: "btn btn-success my-3"%>
+    </div>
+  <% end %>
 
+
+  <%= form_for(resource, as: resource_name, url: user_registration_path, html: { method: :put }) do |f| %>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-
     <div class="field">
       <%= f.label :new_password %>：<%= t("dictionary.sentence.Leave blank if not changed") %>
       <% if @minimum_password_length %>
@@ -21,23 +28,18 @@
       <% end %><br>
       <%= f.password_field :password, autocomplete: "new-password",class: "mb-3" %>
     </div>
-
     <div class="field">
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "mb-3" %>
     </div>
-
     <div class="field">
       <%= f.label :current_password %>：<%= t("dictionary.sentence.Please enter your current password to change") %><br />
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
-
     <div class="actions">
       <%= f.submit t("dictionary.button.update"), class: "btn btn-success my-3"%>
     </div>
   <% end %>
 
-  <%= link_to t("dictionary.words.withdrawal"), users_withdraw_path(current_user), method: :patch, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn btn-danger" %>
-
-  <%= link_to t("dictionary.button.back"), :back %>
+  <%= link_to t("dictionary.words.withdraw"), users_withdraw_path(current_user), method: :patch, data: {confirm: "本当に退会してもよろしいですか？"}, class: "btn btn-danger" %>
 </div>

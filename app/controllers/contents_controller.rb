@@ -19,10 +19,10 @@ class ContentsController < ApplicationController
     category_list = params[:content][:tag_names].split(",")
     if @content.save
       @content.categories_save(category_list)
-      flash[:success] = "投稿しました"
       redirect_to content_path(@content)
     else
-      render :new
+      flash[:danger] = @content.errors.full_messages
+      redirect_to new_content_path
     end
   end
 
@@ -43,10 +43,10 @@ class ContentsController < ApplicationController
     category_list = params[:content][:tag_names].split(",")
     if @content.update(content_params)
       @content.categories_save(category_list)
-      flash[:success] = "投稿を編集しました‼"
       redirect_to content_path(@content)
     else
-      render :edit
+      flash[:danger] = @content.errors.full_messages
+      redirect_to edit_content_path(@content)
     end
   end
 
