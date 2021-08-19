@@ -5,9 +5,11 @@
     <% @likes.each do |like| %>
       <div class="col">
         <div class="card mx-3 my-5 shadow-lg" style="width: 18rem;">
-          <%= link_to content_path(like.content) do %>
-            <%= image_tag like.content.img.url, class: "imgs-trim width=100%" %>
-          <% end %>
+          <div class="imgs-spase">
+            <%= link_to content_path(like.content) do %>
+              <%= image_tag like.content.img.url, class: "card-img-trim" %>
+            <% end %>
+          </div>
           <div class="card-body">
             <% if like.content.user.profile_image? %>
               <%= image_tag like.content.user.profile_image.url, class:"icon" %>

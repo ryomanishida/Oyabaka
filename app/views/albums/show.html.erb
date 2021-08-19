@@ -37,10 +37,8 @@
   <div class="d-flex">
     <div class="row mt-5">
       <% @content_albums.each do |content_album| %>
-        <div class="col">
-          <div class="mx-3 my-5 shadow-lg" style="width: 18rem;">
-            <%= image_tag content_album.content.img.url, class: "imgs-trim width=100%" %>
-          </div>
+        <div class="position-relative pr-3">
+          <%= image_tag content_album.content.img.url, class: "imgs-trim" %>
         </div>
       <% end %>
     </div>

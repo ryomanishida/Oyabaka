@@ -5,7 +5,9 @@
       <% if current_user.admin %>
         <%= link_to "編集", edit_content_path(@content) %>
       <% end %>
-      <%= image_tag @content.img.url, class: 'img-trim'%>
+      <div class= "img-spase">
+        <%= image_tag @content.img.url, class: 'img'%>
+      </div>
     </div>
   </div>
   <div class="row">
