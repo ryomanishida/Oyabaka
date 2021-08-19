@@ -1,0 +1,62 @@
+<%= render 'layouts/searchnav' %>
+<div class= "container">
+  <div class="row my-4">
+    <h5><%= t ("dictionary.words.tag_list") %></h5>
+    <% @tags.each do |tag| %>
+      <%= link_to category_path(tag) do %>
+        <div class= "badge badge-pill badge-secondary ml-1">
+          <%= tag.tag_name %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <h2><%= t ("dictionary.words.ranking") %></h2>
+  <div class="row">
+      <% @ranks.each.with_index(1) do |content, i| %>
+      <div class="col">
+        <%= i %>位
+        <div class="card mx-3 my-5 shadow-lg" style="width: 18rem;">
+          <div class="imgs-spase">
+            <%= link_to content_path(content) do %>
+              <%= image_tag content.img.url, class: 'card-img-trim' %>
+            <% end %>
+          </div>
+          <div class="card-body">
+            <% if content.user.profile_image? %>
+              <%= image_tag content.user.profile_image.url, class:'icon' %>
+            <% else %>
+                <image src="/assets/no_image.jpg" class="icon" %>
+            <% end %>
+            <%= content.title %>
+            <%= content.user.name %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+  </div>
+
+  <div class="d-flex">
+    <div class="row">
+    <% @contents.each do |content| %>
+      <div class="col">
+        <div class="card mx-3 my-5 shadow-lg" style="width: 18rem;">
+          <div class="imgs-spase">
+            <%= link_to content_path(content) do %>
+              <%= image_tag content.img.url, class: "card-img-trim" %>
+            <% end %>
+          </div>
+          <div class="card-body">
+            <% if content.user.profile_image? %>
+              <%= image_tag content.user.profile_image.url, class:"icon" %>
+            <% else %>
+                <image src="/assets/no_image.jpg" class="icon" %>
+            <% end %>
+            <%= content.title %>
+            <%= content.user.name %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

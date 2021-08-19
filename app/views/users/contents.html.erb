@@ -1,0 +1,30 @@
+<%= render 'layouts/navber' %>
+<div class="container my-5">
+  <% if @user.profile_image? %>
+    <%= image_tag @user.profile_image.url, class:'icon' %>
+  <% else %>
+      <image src="/assets/no_image.jpg" class="icon" %>
+  <% end %>
+  <%= @user.name %>
+  <%= @user.self_introduction %>
+  <%= render 'relationships/follow_button', user: @user %>
+
+  <div class="d-flex">
+    <div class="row">
+    <% @contents.each do |content| %>
+      <div class="col">
+        <div class="card mx-3 my-5 shadow-lg" style="width: 18rem;">
+          <div class="imgs-spase">
+            <%= link_to content_path(content) do %>
+              <%= image_tag content.img.url, class: "card-img-trim" %>
+            <% end %>
+          </div>
+          <div class="card-body">
+            <%= content.title %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

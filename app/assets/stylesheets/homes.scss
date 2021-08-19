@@ -6,32 +6,6 @@ p{
   text-align: center;
 }
 
-
-.btn-top{
-  @import "bootstrap";
-  color: #4689FF;
-  background-color: #fff;
-  border: solid;
-}
-.btn-top:hover{
-  color: #4689FF;
-  background: #D9E5FF;
-}
-
-.btn-radius {
-   border-radius: 100vh;
-}
-
-.btn2-top{
-  color: #fff;
-  background-color: #75A9FF;
-}
-.btn2-top:hover{
-  color: #fff;
-  background: #4689FF;
-}
-
-img.sized {
-  width: 50%;
-  height: 50%;
+.sized {
+  width: 60%;
 }

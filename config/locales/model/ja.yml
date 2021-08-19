@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    models:
+      user: "ユーザー"
+      content: "投稿"
+      content_album: "投稿アルバム"
+      album: "アルバム"
+    attributes:
+      user:
+        name: "なまえ"
+        self_introduction: "自己紹介"
+        profile_image: "プロフィール画像"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード確認用"
+        current_password: "現在のパスワード"
+        new_password: "新しいパスワード"
+      content:
+        img: "画像"
+        tag: "タグ"
+        title: "タイトル"
+        introduction: "本文"
+      content_album:
+        album_name: "アルバム名"
+      album:
+        album_name: "アルバム名"
+  attributes:
+    created_at: "作成日"
+    updated_at: "更新日"

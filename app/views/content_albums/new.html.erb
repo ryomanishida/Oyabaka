@@ -1,0 +1,23 @@
+<%= render 'layouts/navber' %>
+<% flash.each do |danger, message| %>
+  <%= message %>
+<% end %>
+<div class="container my-5">
+  <%= form_with model:@content_album, local: true do |f| %>
+    <%= f.label :album_name %>
+    <%= f.text_field :album_name %>
+    <div class="d-flex">
+      <div class="row ml-5 my-4">
+      <%= f.collection_check_boxes :content_id, @contents, :id, :img do |b| %>
+        <div class="position-relative pr-3">
+          <%= b.label do %>
+            <%= b.check_box class: "position-absolute checkbox-size-big" %>
+            <%= image_tag b.text.url, class: "imgs-trim" %>
+          <% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+    <%= f.submit t("dictionary.button.save") %>
+  <% end %>
+</div>

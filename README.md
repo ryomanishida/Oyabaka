@@ -1,24 +1,51 @@
-# README
+# 親バカ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##サイト概要
+"親バカ"は、飼っているペット、道端で見かけた動物など動物のかわいいワンシーンを投稿し、シェアして楽しむ動物専門のSNSです。
+動物好きなら誰しもが思っている「かわいい動物を見てほしい！」「かわいい動物を見て癒されたい！」といったニーズに応えます。
+動物専門なのでこのアプリの利用者はみんな動物好き。目的が同じなので投稿に共感してくれる人もたくさん見つかり、好きな投稿を見つけるのも容易でユーザーの欲求を満たします。
+また、自分の過去に投稿をした写真や動画をまとめることができ整理が簡単です。複数のペットを投稿している場合、ペット毎にまとめれば成長アルバムとすることも。
 
-Things you may want to cover:
+使い方は簡単！
+1.ログインをしよう！
+2.自分の好きな投稿を見つけたら気軽にいいね！やコメントしてみよう！
+3.あなたも写真や動画をアップしてみよう！
+4.コメントが来たら返信して楽しくお話してみよう！
 
-* Ruby version
+言語の切り替えができるため、幅広い地域でご利用頂けます。あなたの国では珍しい動物も見ることができるかもしれません。
 
-* System dependencies
+###サイトテーマ
+動物専用SNS
 
-* Configuration
+###テーマを選んだ理由
+このようなテーマを選んだ私ですが、最近まで動物の可愛さなんて全くわかりませんでした。
+しかし、ペットを飼い始めてから一変し、気がつけば周囲の人にペットの可愛い写真を見せたり、動画アプリなどで可愛い動物動画を漁ったりしていました。
+そこで動物専用の投稿プラットフォームがあれば便利だと思いこのテーマを決めました。
 
-* Database creation
+###ターゲットユーザー
+動物が好きな人
 
-* Database initialization
+###主な利用シーン
+ペットの自慢に
+投稿を見て癒しを得る
+ペットの成長アルバムとして
+動物図鑑として調べ物に
 
-* How to run the test suite
+##設計書
 
-* Services (job queues, cache servers, search engines, etc.)
+https://docs.google.com/spreadsheets/d/1Vr4uEedi_VfcFyi505IXg7Vnb2xmrn2PspMmlS89Wlg/edit#gid=1243549839
 
-* Deployment instructions
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1XTxpfOeKkZMCSQGcurSJEEYLKhKiqq3zRsK1Kp5KGT0/edit#gid=0
 
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
+###フリー画像
+- pixabay  https://pixabay.com/ja/
+- Pexels  https://www.pexels.com/ja-jp/

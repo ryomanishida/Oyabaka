@@ -1,8 +1,0 @@
-ユーザー編集
-<%= form_with model:@user, url:my_pages_path, local:true do |f| %>
-  <%= f.label :名前 %>
-  <%= f.text_field :name %>
-  <%= f.label :自己紹介 %>
-  <%= f.text_area :self_introduction %>
-  <%= f.submit "変更を保存" %>
-<% end %>

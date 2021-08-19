@@ -1,11 +1,21 @@
-<h3>癒しがここに。</h3>
-<h4>親バカをはじめる</h4>
-<%= image_tag 'animal-1238238.jpg', class:'sized' %>
-<% if user_signed_in? %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%=link_to "アカウント作成", new_user_registration_path, class:'btn btn-top btn-radius' %>
-  <%=link_to "ログイン", new_user_session_path, class:'btn btn2-top btn-radius' %>
-<% end %>
+<div class="container my-5">
+  <div class="d-flex align-items-center">
+    <%= image_tag 'top.jpg',class: "topimage mt-5" %>
+    <div class="row mt-5">
+      <div class="col">
+        <div class="top-menu ml-5">
+          <h3><%= t("dictionary.sentence.healing is here") %><br><%= t("dictionary.sentence.play the oyabaka") %></h3>
+          <% if user_signed_in? %>
+            <%= link_to t("dictionary.button.log_out"), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary mx-3 mt-3" %><br>
+          <% else %>
+            <%= link_to t("dictionary.button.log_in"), new_user_session_path, class: "btn btn-primary mx-3 mt-3 mb-2" %><br>
+            <%= link_to t("dictionary.button.sign_up"), new_user_registration_path, class: "btn btn-outline-primary mx-3 my-2" %><br>
+          <% end %>
+          <%= link_to t("dictionary.button.go_app"), search_contents_path, class: "btn btn-outline-dark mx-3 my-2" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 

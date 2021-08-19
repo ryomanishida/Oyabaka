@@ -1,0 +1,42 @@
+ja:
+  dictionary:
+    button:
+      go_app: "アプリへ"
+      log_in: "ログイン"
+      log_out: "ログアウト"
+      sign_up: "アカウント作成"
+      create: "登録する"
+      update: "更新する"
+      save: "保存する"
+      delete: "削除"
+      back: "戻る"
+      search: "検索"
+      send: "送信"
+      following: "フォロー中"
+      follow: "フォロー"
+
+    words:
+      edit: "編集"
+      user_edit: "ユーザー編集"
+      withdraw: "退会する"
+      comment: "コメント"
+      mypage: "マイページ"
+      post: "投稿"
+      follow: "フォロー"
+      album: "アルバム"
+      tag_list: "タグ一覧"
+      ranking: "ランキング"
+    sentence:
+      healing is here: "癒しがここに。"
+      play the oyabaka: "親バカをはじめる"
+      Leave blank if not changed: "変更しない場合は空白にしてください"
+      Please enter your current password to change: "変更するには、現在のパスワードを入力してください"
+      characters_minimum: "文字以上"
+      Those who have an account: "アカウントをお持ちの方"
+      Those who do not have an account: "アカウントをお持ちでない方"
+      Did you forget your password?: "パスワードを忘れましたか？"
+      reissue_the_password: "パスワードを再発行します。"
+
+
+
+

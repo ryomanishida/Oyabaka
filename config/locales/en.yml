@@ -30,4 +30,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  dictionary:
+    button:
+      go_app: "Go App"
+      log_in: "Log in"
+      log_out: "Log out"
+      sign_up: "Sign up"
+      create: "create"
+      save: "save"
+      update: "update"
+      delete: "delete"
+      search: "search"
+      send: "send"
+      following: "following"
+      follow: "follow"
+      back: "back"
+  contents:
+    new:
+      please separate with,: "please separate with,"

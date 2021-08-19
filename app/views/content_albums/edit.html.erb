@@ -1,0 +1,26 @@
+<%= render 'layouts/navber' %>
+<div class="container my-5">
+  <%= form_with model:@content_album,url: content_album_path(@album_id ), method: :patch, local: true do |f| %>
+    <div class="d-flex">
+      <div class="row ml-5 my-4">
+      <%= f.collection_check_boxes :content_id, @contents, :id, :img do |b| %>
+        <div class="position-relative pr-3">
+          <%= b.label class: "check_box" do %>
+            <%= b.check_box class: "check_box position-absolute checkbox-size-big" %>
+            <%= image_tag b.text.url, class: "imgs-trim" %>
+          <% end %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+    <%= f.submit t("dictionary.button.update") %>
+  <% end %>
+</div>
+
+<!--既存のデータにチェックを入れる-->
+<script>
+  <% ContentAlbum.where(album_id:@album_id).each do |v| %>
+    console.log('<%= v.content.title %>')
+    $('#content_album_content_id_<%= v.content.id %>').prop('checked', true);
+  <% end %>
+</script>

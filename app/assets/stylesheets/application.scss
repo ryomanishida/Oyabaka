@@ -17,3 +17,99 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+  flex: 1;
+}
+
+
+// navber
+.bg{
+  background: linear-gradient(to right, #6699CC, 	#FFEBCD 60%, #EEEEEE);
+}
+
+.search-aria{
+  text-align: center;
+}
+
+.icon{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.fas{
+  color: black;
+}
+.fas-size-big{
+  transform: scale(2);
+}
+.fas-size-album{
+  transform: scale(3);
+}
+
+.img{
+  height: 100%;
+}
+
+.img-spase {
+  width: 800px;
+  height: 500px;
+  object-fit: cover;
+  background-color: #333333;
+  text-align: center;
+}
+
+.imgs-trim {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.card-img-trim{
+  height: 180px;
+}
+
+.imgs-spase {
+  background-color: #333333;
+  text-align: center;
+}
+
+.checkbox-size-big {
+  width: 24px;
+  height: 24px;
+  transform: scale(1.4);
+}
+
+.image_input_btn{
+  display: block;
+  background-color: #228B22;
+  width: 180px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  padding-top: 2px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+.image_form{
+  display: none;
+}
+
+footer{
+  width: 100%;
+  height: 120px;
+}
+
+.link {
+    text-decoration: none;
+    color: black ;
+}
