@@ -3,11 +3,13 @@
   <% if @user.profile_image? %>
     <%= image_tag @user.profile_image.url, class:'icon' %>
   <% else %>
-      <image src="/assets/no_image.jpg" class="icon" %>
+    <image src="/assets/no_image.jpg" class="icon" %>
   <% end %>
   <%= @user.name %>
   <%= @user.self_introduction %>
-  <%= render 'relationships/follow_button', user: @user %>
+  <% if user_signed_in? && !current_user&.admin %>
+    <%= render 'relationships/follow_button', user: @user %>
+  <% end %>
 
   <div class="d-flex">
     <div class="row">
