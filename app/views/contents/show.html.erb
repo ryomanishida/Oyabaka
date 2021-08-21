@@ -32,7 +32,9 @@
           <%= @user.name %>
         </div>
         <div class="mr-5">
-          <%= render 'relationships/follow_button', user: @user %>
+          <% if user_signed_in? && !current_user&.admin %>
+            <%= render 'relationships/follow_button', user: @user %>
+          <% end %>
         </div>
         <div class="mr-5">
           <%= t ("dictionary.words.comment") %>：<%= @content.comments.count %>
