@@ -8,6 +8,6 @@
 
 User.create!(name:  "管理者",
              email: "admin@oyabaka",
-             password:  "11111111",
-             password_confirmation: "11111111",
+             password:  "58973246",
+             password_confirmation: "58973246",
              admin: true)
