@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg">
     <%= link_to search_contents_path do %>
-      <image src="/assets/linkedin_banner_image_1.png" width="120" height="60" >
+      <%= image_tag 'linkedin_banner_image_1.png', class: "logo" %>
     <% end %>
     <div class="container">
       <div class="row ml-5">
@@ -31,9 +31,9 @@
                     <li class="nav-item dropdown">
                       <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <% if current_user.profile_image? %>
-                            <%= image_tag current_user.profile_image.url, class: "icon" %>
+                          <%= image_tag current_user.profile_image.url, class: "icon" %>
                         <% else %>
-                            <image src="/assets/no_image.jpg" class="icon" >
+                          <%= image_tag 'no_image.jpg', class: "icon" %>
                         <% end %>
                       </div>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -72,7 +72,7 @@
                         <% if current_user.profile_image? %>
                             <%= image_tag current_user.profile_image.url, class: "icon" %>
                         <% else %>
-                            <image src="/assets/no_image.jpg" class="icon" >
+                          <%= image_tag 'no_image.jpg', class: "icon" %>
                         <% end %>
                       </div>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">

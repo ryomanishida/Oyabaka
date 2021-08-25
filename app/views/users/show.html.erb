@@ -15,7 +15,7 @@
         <% if @user.profile_image? %>
           <%= image_tag @user.profile_image.url, class: "icon" %>
         <% else %>
-          <image src="/assets/no_image.jpg" class="icon" %>
+          <%= image_tag 'no_image.jpg', class: "icon" %>
         <% end %>
         <%= f.label :profile_image, "File", class: "image_input_btn" %><br />
         <%= f.file_field :profile_image, class: "image_form w-50" %>
@@ -45,9 +45,9 @@
   </div>
   <div class="row my-5">
     <% if @user.profile_image? %>
-        <%= image_tag @user.profile_image.url, class: "icon" %>
+      <%= image_tag @user.profile_image.url, class: "icon" %>
     <% else %>
-        <image src="/assets/no_image.jpg" class="icon" %>
+      <%= image_tag 'no_image.jpg', class: "icon" %>
     <% end %>
     <div class="col-md-5 col-sm-7">
       <h4><%= @user.name %></h4>
@@ -71,9 +71,9 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <% @followings.each do |user| %>
                 <% if user.profile_image? %>
-                    <%= image_tag user.profile_image.url, class: 'icon' %>
+                  <%= image_tag user.profile_image.url, class: 'icon' %>
                 <% else %>
-                    <image src="/assets/no_image.jpg" class="icon" %>
+                  <%= image_tag 'no_image.jpg', class: "icon" %>
                 <% end %>
                 <%= link_to user_contents_path(user) do %>
                   <%= user.name %>

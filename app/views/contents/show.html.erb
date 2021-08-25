@@ -27,7 +27,7 @@
           <% if @user.profile_image? %>
             <%= image_tag @user.profile_image.url, class:'icon' %>
           <% else %>
-              <image src="/assets/no_image.jpg" class="icon" %>
+            <%= image_tag 'no_image.jpg', class: "icon" %>
           <% end %>
           <%= @user.name %>
         </div>

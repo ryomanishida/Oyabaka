@@ -18,6 +18,10 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+.logo{
+  width: 120px;
+  height: 60px;
+}
 body{
   min-height: 100vh;
   display: flex;
