@@ -21,7 +21,7 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
     <div class="field">
-      <%= f.label :new_password %>：<%= t("dictionary.sentence.Leave blank if not changed") %>
+      <%= f.label :new_password %>：<%= t("dictionary.sentence.leave_blank_if_not_changed") %>
       <% if @minimum_password_length %>
         <br />
         <em><%= @minimum_password_length %> 文字以上</em>
@@ -33,7 +33,7 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "mb-3" %>
     </div>
     <div class="field">
-      <%= f.label :current_password %>：<%= t("dictionary.sentence.Please enter your current password to change") %><br />
+      <%= f.label :current_password %>：<%= t("dictionary.sentence.please_enter_your_current_password_to_change") %><br />
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
     <div class="actions">

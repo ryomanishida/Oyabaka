@@ -24,18 +24,20 @@ ja:
       post: "投稿"
       follow: "フォロー"
       album: "アルバム"
-      tag_list: "タグ一覧"
+      tags: "タグ一覧"
       ranking: "ランキング"
     sentence:
-      healing is here: "癒しがここに。"
-      play the oyabaka: "親バカをはじめる"
-      Leave blank if not changed: "変更しない場合は空白にしてください"
-      Please enter your current password to change: "変更するには、現在のパスワードを入力してください"
+      healing_is_here: "癒しがここに。"
+      play_the_oyabaka: "親バカをはじめる"
+      those_who_have_an_account: "アカウントをお持ちの方"
+      those_who_do_not_have_an_account: "アカウントをお持ちでない方"
       characters_minimum: "文字以上"
-      Those who have an account: "アカウントをお持ちの方"
-      Those who do not have an account: "アカウントをお持ちでない方"
-      Did you forget your password?: "パスワードを忘れましたか？"
+      did_you_forget_your_password?: "パスワードを忘れましたか？"
       reissue_the_password: "パスワードを再発行します。"
+      leave_blank_if_not_changed: "変更しない場合は空白にしてください"
+      please_enter_your_current_password_to_change: "変更するには、現在のパスワードを入力してください"
+      example: "例) 犬,エサ,かわいい"
+      please_separate_with,: ",で区切ってください"
 
 
 

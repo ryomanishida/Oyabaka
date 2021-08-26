@@ -1,0 +1,29 @@
+en:
+  activerecord:
+    models:
+      user: "user"
+      content: "content"
+      content_album: "content_album"
+      album: "album"
+    attributes:
+      user:
+        name: "name"
+        self_introduction: "self-introduction"
+        profile_image: "profile image"
+        email: "email"
+        password: "password"
+        password_confirmation: "password confirmation"
+        current_password: "current password"
+        new_password: "new password"
+      content:
+        img: "Image"
+        tag: "Tag"
+        title: "Title"
+        introduction: "Introduction"
+      content_album:
+        album_name: "Album name"
+      album:
+        album_name: "Album name"
+  attributes:
+    created_at: "created date"
+    updated_at: "Update date"

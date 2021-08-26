@@ -1,7 +1,7 @@
 <%= render 'layouts/searchnav' %>
 <div class= "container">
   <div class="row my-4">
-    <h5><%= t ("dictionary.words.tag_list") %></h5>
+    <h5><%= t ("dictionary.words.tags") %></h5>
     <% @tags.each do |tag| %>
       <%= link_to category_path(tag) do %>
         <div class= "badge badge-pill badge-secondary ml-1">
@@ -47,9 +47,9 @@
           </div>
           <div class="card-body">
             <% if content.user.profile_image? %>
-              <%= image_tag content.user.profile_image.url, class:"icon" %>
+              <%= image_tag content.user.profile_image.url, class: "icon" %>
             <% else %>
-                <image src="/assets/no_image.jpg" class="icon" %>
+              <%= image_tag 'no_image.jpg', class: "icon" %>
             <% end %>
             <%= content.title %>
             <%= content.user.name %>

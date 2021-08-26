@@ -17,8 +17,9 @@
           <%= f.text_area :introduction, class:"form-control" %>
           <hr>
           <%= t ".ex) dog,food,cute" %>
+          <%= t("dictionary.sentence.example") %>
           <%= f.label :tag %>
-          <%= f.text_field :tag_names, placeholder: t("contents.new.please separate with,") %>
+          <%= f.text_field :tag_names, placeholder: t("dictionary.sentence.please_separate_with,") %>
         <%= f.submit t("dictionary.button.create"), class: "btn btn-lg btn-block btn-info mt-4" %>
         <% end %>
       </div>

@@ -4,7 +4,7 @@
     <div class="row mt-5">
       <div class="col">
         <div class="top-menu ml-5">
-          <h3><%= t("dictionary.sentence.healing is here") %><br><%= t("dictionary.sentence.play the oyabaka") %></h3>
+          <h3><%= t("dictionary.sentence.healing_is_here") %><br><%= t("dictionary.sentence.play_the_oyabaka") %></h3>
           <% if user_signed_in? %>
             <%= link_to t("dictionary.button.log_out"), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary mx-3 mt-3" %><br>
           <% else %>
