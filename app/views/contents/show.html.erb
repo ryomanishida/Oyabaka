@@ -6,7 +6,7 @@
         <%= link_to "編集", edit_content_path(@content) %>
       <% end %>
       <div class= "img-spase">
-        <%= image_tag @content.img.url, class: 'img'%>
+        <%= image_tag @content.img.to_s, class: 'img'%>
       </div>
     </div>
   </div>
