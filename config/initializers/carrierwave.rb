@@ -8,6 +8,7 @@ unless Rails.env.development? || Rails.env.test?
     }
 
     config.fog_directory  = 'oyabakabucket'
-    config.cache_storage = :fog
+    config.storage :fog
+    config.fog_provider = 'fog/aws'
   end
 end
