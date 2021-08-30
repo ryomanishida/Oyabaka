@@ -1,5 +1,7 @@
 unless Rails.env.development? || Rails.env.test?
   CarrierWave.configure do |config|
+    config.storage :fog
+    config.fog_provider = 'fog/aws'
     config.fog_credentials = {
       provider: 'AWS',
       aws_access_key_id: 'AKIA5G5H7SSRNZKYB5W3',
@@ -8,7 +10,5 @@ unless Rails.env.development? || Rails.env.test?
     }
 
     config.fog_directory  = 'oyabakabucket'
-    config.storage :fog
-    config.fog_provider = 'fog/aws'
   end
 end
