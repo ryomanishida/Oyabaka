@@ -24,6 +24,17 @@
                       <% end %>
                     </li>
                     <li class="nav-item">
+                      <% if session[:locale] == "en" || session[:locale].blank? %>
+                        <%= link_to "/home/change_language/ja", class: "link" do %>
+                          Japanese/日本語
+                        <% end %>
+                      <% elsif session[:locale] == "ja" %>
+                        <%= link_to "/home/change_language/en", class: "link" do %>
+                          English/英語
+                        <% end %>
+                      <% end %>
+                    </li>
+                    <li class="nav-item">
                       <%= link_to destroy_user_session_path, method: :delete do %>
                         <i class="fas fas-size-big fa-sign-out-alt mx-4 mt-4"></i>
                       <% end %>
