@@ -10,9 +10,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  # 作成と同時にログインしたい
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      redirect_to search_contents_path
+    else
+      flash[:notice] = @user.errors.full_messages
+      redirect_to new_user_registration_path
+    end
+  end
 
   # GET /resource/edit
   # def edit

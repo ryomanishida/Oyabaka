@@ -14,6 +14,17 @@
     <footer>
       <div class="col">
         <%=link_to "About", home_about_path, class: "link" %>
+        <div>
+          <% if session[:locale] == "en" || session[:locale].blank? %>
+            <%= link_to "/home/change_language/ja", class: "link" do %>
+              Japanese/日本語
+            <% end %>
+          <% elsif session[:locale] == "ja" %>
+            <%= link_to "/home/change_language/en", class: "link" do %>
+              English/英語
+            <% end %>
+          <% end %>
+        </div>
         <p>© 2021 Oyabaka</p>
       </div>
     </footer>
