@@ -71,4 +71,4 @@ group :production do
   gem 'mysql2'
 end
 gem 'ovirt-engine-sdk', '= 4.4.1'
-gem 'fog'
+gem 'fog-aws'
