@@ -1,8 +1,10 @@
 
 <%= render 'layouts/navber' %>
 <div class="containar my-5">
-  <% flash.each do |danger, message| %>
-    <%= message %>
+  <% if flash[:alert] %>
+    <% flash.each do |alert, message| %>
+      <%= message %>
+    <% end %>
   <% end %>
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-auto shadow-lg my-5">

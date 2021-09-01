@@ -14,9 +14,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     if @user.save
+      sign_in(@user, :bypass => true)
       redirect_to search_contents_path
     else
-      flash[:notice] = @user.errors.full_messages
+      flash[:alert] = @user.errors.full_messages
       redirect_to new_user_registration_path
     end
   end
@@ -30,11 +31,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def update
     @user = current_user
     if @user.update(user_params)
-      flash[:notice] = "更新しました"
+      flash[:alert] = "更新しました"
       sign_in(@user, :bypass => true)#deviseが勝手にログアウトするので
       redirect_to edit_user_registration_path
     else
-      flash[:notice] = @user.errors.full_messages
+      flash[:alert] = @user.errors.full_messages
       redirect_to edit_user_registration_path
     end
   end

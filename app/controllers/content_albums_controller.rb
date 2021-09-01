@@ -13,7 +13,7 @@ class ContentAlbumsController < ApplicationController
 
     if !!!@album.save
       @contents = current_user.contents
-      flash[:danger] = @album.errors.full_messages
+      flash[:alert] = @album.errors.full_messages
       redirect_to new_content_album_path
       return
     end

@@ -21,7 +21,7 @@ class ContentsController < ApplicationController
       @content.categories_save(category_list)
       redirect_to content_path(@content)
     else
-      flash[:danger] = @content.errors.full_messages
+      flash[:alert] = @content.errors.full_messages
       redirect_to new_content_path
     end
   end
@@ -45,7 +45,7 @@ class ContentsController < ApplicationController
       @content.categories_save(category_list)
       redirect_to content_path(@content)
     else
-      flash[:danger] = @content.errors.full_messages
+      flash[:alert] = @content.errors.full_messages
       redirect_to edit_content_path(@content)
     end
   end

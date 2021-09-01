@@ -1,6 +1,8 @@
 <%= render 'layouts/navber' %>
-<% flash.each do |danger, message| %>
-  <%= message %>
+<% if flash[:alert] %>
+  <% flash.each do |alert, message| %>
+    <%= message %>
+  <% end %>
 <% end %>
 
 <div class="containar my-5">
