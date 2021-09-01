@@ -14,13 +14,12 @@
           <%= f.label :img, "File", class: "image_input_btn w-50" %><br>
           <%= f.file_field :img, class: "image image_form" %>
           <%= f.label :title %>
-          <%= f.text_field :title, class:"form-control" %>
+          <%= f.text_field :title, class: "form-control mb-3" %>
           <%= f.label :introduction %>
-          <%= f.text_area :introduction, class:"form-control" %>
+          <%= f.text_area :introduction, class: "form-control mb-3" %>
           <hr>
-          <%= t ".ex) dog,food,cute" %>
+          <%= f.label :tag %><br>
           <%= t("dictionary.sentence.example") %>
-          <%= f.label :tag %>
           <%= f.text_field :tag_names, placeholder: t("dictionary.sentence.please_separate_with,") %>
         <%= f.submit t("dictionary.button.create"), class: "btn btn-lg btn-block btn-info mt-4" %>
         <% end %>
