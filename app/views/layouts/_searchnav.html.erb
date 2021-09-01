@@ -67,22 +67,10 @@
                         <i class="fas fas-size-big fa-users mx-4 mt-4"></i>
                       <% end %>
                     </li>
-                    <li class="nav-item dropdown">
-                      <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <% if current_user.profile_image? %>
-                            <%= image_tag current_user.profile_image.url, class: "icon" %>
-                        <% else %>
-                          <%= image_tag 'no_image.jpg', class: "icon" %>
+                    <li class="nav-item">
+                        <%= link_to edit_user_registration_path(current_user) do %>
+                          <i class="fas fas-size-big fa-cog mx-4 mt-4"></i>
                         <% end %>
-                      </div>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <%= link_to user_path(current_user.id), class: "dropdown-item" do %>
-                          <i class="fas fa-user">マイページ</i>
-                        <% end %>
-                        <%= link_to edit_user_registration_path(current_user), class: "dropdown-item" do %>
-                          <i class="fas fa-cog"></i>
-                        <% end %>
-                      </div>
                     </li>
                 <% else %>
                     <li class="nav-item">
