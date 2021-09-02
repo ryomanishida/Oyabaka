@@ -1,7 +1,7 @@
 <%= render 'layouts/searchnav' %>
 <div class= "container">
   <div class="row my-4">
-    <h5><%= t ("dictionary.words.tags") %></h5>
+    <h4 class="font"><%= t ("dictionary.words.tags") %></h4>
     <% @tags.each do |tag| %>
       <%= link_to category_path(tag) do %>
         <div class= "badge badge-pill badge-secondary ml-1">
@@ -10,7 +10,7 @@
       <% end %>
     <% end %>
   </div>
-  <h2><%= t ("dictionary.words.ranking") %></h2>
+  <h2 class="font"><%= t ("dictionary.words.ranking") %></h2>
   <div class="row">
       <% @ranks.each.with_index(1) do |content, i| %>
       <div class="col">
@@ -27,14 +27,14 @@
             <% else %>
               <%= image_tag 'no_image.jpg', class: "icon" %>
             <% end %>
-            <%= content.title %><br>
+            <%= content.title.truncate(10) %><br>
             <%= content.user.name %>
           </div>
         </div>
       </div>
       <% end %>
   </div>
-
+  <hr>
   <div class="d-flex">
     <div class="row">
     <% @contents.each do |content| %>
@@ -51,7 +51,7 @@
             <% else %>
               <%= image_tag 'no_image.jpg', class: "icon" %>
             <% end %>
-            <%= content.title %><br>
+            <%= content.title.truncate(10) %><br>
             <%= content.user.name %>
           </div>
         </div>

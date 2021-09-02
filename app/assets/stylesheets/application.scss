@@ -18,36 +18,33 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-.logo{
-  width: 120px;
-  height: 60px;
+.font{
+  font-family: 'Yomogi', cursive;
 }
 body{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
 .container{
   flex: 1;
 }
-
-
 // navber
 .bg{
   background: linear-gradient(to right, #6699CC, 	#FFEBCD 60%, #EEEEEE);
 }
-
+.logo{
+  width: 120px;
+  height: 60px;
+}
 .search-aria{
   text-align: center;
 }
-
 .icon{
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
-
 .fas{
   color: black;
 }
@@ -57,11 +54,9 @@ body{
 .fas-size-album{
   transform: scale(3);
 }
-
 .img{
   height: 100%;
 }
-
 .img-spase {
   width: 800px;
   height: 500px;
@@ -69,7 +64,6 @@ body{
   background-color: #333333;
   text-align: center;
 }
-
 .imgs-trim {
   width: 100%;
   height: 180px;
@@ -78,18 +72,15 @@ body{
 .card-img-trim{
   height: 180px;
 }
-
 .imgs-spase {
   background-color: #333333;
   text-align: center;
 }
-
 .checkbox-size-big {
   width: 24px;
   height: 24px;
   transform: scale(1.4);
 }
-
 .image_input_btn{
   display: block;
   background-color: #228B22;
@@ -103,16 +94,13 @@ body{
   text-decoration: none;
   text-align: center;
 }
-
 .image_form{
   display: none;
 }
-
 footer{
   width: 100%;
   height: 120px;
 }
-
 .link {
     text-decoration: none;
     color: black ;

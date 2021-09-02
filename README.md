@@ -39,7 +39,7 @@ https://docs.google.com/spreadsheets/d/1Vr4uEedi_VfcFyi505IXg7Vnb2xmrn2PspMmlS89
 https://docs.google.com/spreadsheets/d/1XTxpfOeKkZMCSQGcurSJEEYLKhKiqq3zRsK1Kp5KGT0/edit#gid=0
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Mac OS
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
@@ -49,3 +49,6 @@ https://docs.google.com/spreadsheets/d/1XTxpfOeKkZMCSQGcurSJEEYLKhKiqq3zRsK1Kp5K
 ###フリー画像
 - pixabay  https://pixabay.com/ja/
 - Pexels  https://www.pexels.com/ja-jp/
+###アイコン・フォント
+- Font Awesome
+- Google Fonts

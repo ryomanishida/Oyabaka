@@ -16,7 +16,7 @@
             <% else %>
               <%= image_tag 'no_image.jpg', class: "icon" %>
             <% end %>
-            <%= like.content.title%>
+            <%= like.content.title.truncate(10) %><br>
             <%= like.content.user.name %>
           </div>
         </div>

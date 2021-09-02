@@ -6,7 +6,7 @@
 <% end %>
 
 <div class="container my-5">
-  <h2><%= t("dictionary.words.edit") %></h2>
+  <h1 class="font"><%= t("dictionary.words.edit") %></h1>
   <%= form_for(resource, as: resource_name, url: user_registration_path, html: { method: :put }) do |f| %>
     <div class="field">
       <%if current_user.admin? %>

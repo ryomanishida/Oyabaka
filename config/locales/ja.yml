@@ -24,7 +24,8 @@ ja:
       follow: "フォロー"
       album: "アルバム"
       tags: "タグ一覧"
-      ranking: "ランキング"
+      ranking: "人気の投稿"
+      favo: "いいね"
     sentence:
       healing_is_here: "癒しがここに。"
       play_the_oyabaka: "親バカをはじめる"

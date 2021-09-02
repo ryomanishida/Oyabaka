@@ -14,7 +14,6 @@ class Content < ApplicationRecord
   validates :introduction, length: { maximum: 140 }
 
 
-
   def liked_by?(user)
     likes.where(user_id:user.id).exists?#引数で渡されたuser_idがlikesテーブル内に存在していればtrue
   end
