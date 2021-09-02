@@ -38,16 +38,16 @@
                       </div>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <%= link_to user_path(current_user.id), class: "dropdown-item" do %>
-                          <i class="fas fa-user">マイページ</i>
+                          <i class="fas fa-user"><span class="font ml-2"><%= t("dictionary.words.mypage") %></span></i>
                         <% end %>
                         <%= link_to user_likes_path, class: "dropdown-item" do %>
-                          <i class="fas fa-heart">いいね</i>
+                          <i class="fas fa-heart"><span class="font ml-2"><%= t("dictionary.words.favo") %></span></i>
                         <% end %>
-                        <%= link_to albums_path, class:"dropdown-item" do %>
-                          <i class="fas fa-folder">アルバム</i>
+                        <%= link_to albums_path, class: "dropdown-item" do %>
+                          <i class="fas fa-folder"><span class="font ml-2"><%= t("dictionary.words.album") %></span></i>
                         <% end %>
                         <%= link_to edit_user_registration_path(current_user), class: "dropdown-item" do %>
-                          <i class="fas fa-cog">設定</i>
+                          <i class="fas fa-cog"><span class="font ml-2"><%= t("dictionary.words.edit") %></span></i>
                         <% end %>
                       </div>
                     </li>
