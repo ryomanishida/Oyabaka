@@ -32,6 +32,7 @@
 動物図鑑として調べ物に
 
 ##設計書
+![Oyabaka](https://user-images.githubusercontent.com/81727391/131783894-f6b9093e-281c-418d-b752-9606852e1510.png)
 
 https://docs.google.com/spreadsheets/d/1Vr4uEedi_VfcFyi505IXg7Vnb2xmrn2PspMmlS89Wlg/edit#gid=1243549839
 
