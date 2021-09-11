@@ -51,6 +51,10 @@ body{
 .fas-size-big{
   transform: scale(2);
 }
+カード、画像
+.card-size{
+  width: 18rem;
+}
 .fas-size-album{
   transform: scale(3);
 }
@@ -75,11 +79,6 @@ body{
 .imgs-spase {
   background-color: #333333;
   text-align: center;
-}
-.checkbox-size-big {
-  width: 24px;
-  height: 24px;
-  transform: scale(1.4);
 }
 .image_input_btn{
   display: block;

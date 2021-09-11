@@ -36,6 +36,9 @@ class ContentsController < ApplicationController
   def edit
     @content = Content.find(params[:id])
     @content_tags = @content.categories.pluck(:tag_name).join(",")
+    unless @content.user == current_user
+      redirect_to search_contents_path
+    end
   end
 
   def update

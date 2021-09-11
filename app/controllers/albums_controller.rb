@@ -7,6 +7,9 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
     @content_albums = @album.content_albums
+    unless @album.user == current_user
+      redirect_to albums_path
+    end
   end
 
 

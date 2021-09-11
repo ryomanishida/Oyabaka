@@ -15,7 +15,7 @@
       <% @ranks.each.with_index(1) do |content, i| %>
       <div class="col">
         <%= i %>位
-        <div class="card mx-3 my-5 shadow-lg" style="width: 18rem;">
+        <div class="card card-size mx-3 my-5 shadow-lg">
           <div class="imgs-spase">
             <%= link_to content_path(content) do %>
               <%= image_tag content.img.url, class: 'card-img-trim' %>
@@ -39,7 +39,7 @@
     <div class="row">
     <% @contents.each do |content| %>
       <div class="col">
-        <div class="card mx-3 my-5 shadow-lg" style="width: 18rem;">
+        <div class="card card-size mx-3 my-5 shadow-lg">
           <div class="imgs-spase">
             <%= link_to content_path(content) do %>
               <%= image_tag content.img.url, class: "card-img-trim" %>

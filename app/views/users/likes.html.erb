@@ -4,7 +4,7 @@
     <div class="row">
     <% @likes.each do |like| %>
       <div class="col">
-        <div class="card mx-3 my-5 shadow-lg" style="width: 18rem;">
+        <div class="card card-size mx-3 my-5 shadow-lg">
           <div class="imgs-spase">
             <%= link_to content_path(like.content) do %>
               <%= image_tag like.content.img.url, class: "card-img-trim" %>

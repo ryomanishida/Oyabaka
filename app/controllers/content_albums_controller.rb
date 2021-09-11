@@ -33,6 +33,10 @@ class ContentAlbumsController < ApplicationController
     @contents = current_user.contents
     @content_album = ContentAlbum.new
     @album_id = params[:album_id]
+    # アルバムidがcurrent_userのアルバムidと一致するか
+    # unless @album_id == current_user.albums.ids
+    #   redirect_to albums_path
+    # end
   end
 
   def update
