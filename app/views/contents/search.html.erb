@@ -13,7 +13,7 @@
   <h2 class="font"><%= t ("dictionary.words.ranking") %></h2>
   <div class="row">
       <% @ranks.each.with_index(1) do |content, i| %>
-      <div class="col">
+      <div class="col-md-12 col-lg-4">
         <%= i %>位
         <div class="card card-size mx-3 my-5 shadow-lg">
           <div class="imgs-spase">
@@ -38,7 +38,7 @@
   <div class="d-flex">
     <div class="row">
     <% @contents.each do |content| %>
-      <div class="col">
+      <div class="col-md-12 col-lg-4">
         <div class="card card-size mx-3 my-5 shadow-lg">
           <div class="imgs-spase">
             <%= link_to content_path(content) do %>

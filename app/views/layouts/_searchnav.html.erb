@@ -12,11 +12,8 @@
         </div>
         <% end %>
         <div class="col ml-5">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
+
+
                 <% if user_signed_in? && !current_user&.admin %>
                 　　<li class="nav-item">
                       <%= link_to new_content_path do %>
@@ -84,8 +81,8 @@
                       <% end %>
                     </li>
                 <% end %>
-              </ul>
-            </div>
+
+
         </div>
       </div>
     </div>
