@@ -11,8 +11,8 @@
       <h5 class="form-title bg-light p-4">画像投稿フォーム</h5>
       <div class="form-body p-4">
         <%= form_with model:@content, local:true do |f| %>
-          <%= f.label :img, "File", class: "image_input_btn w-50" %><br>
-          <%= f.file_field :img, class: "image image_form" %>
+          <%= f.label :img %><br>
+          <%= f.file_field :img %><br>
           <%= f.label :title %>
           <%= f.text_field :title, class: "form-control mb-3" %>
           <%= f.label :introduction %>

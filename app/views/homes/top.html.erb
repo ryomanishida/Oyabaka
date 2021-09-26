@@ -5,21 +5,21 @@
         <%= image_tag 'top.jpg', class: "topimage" %>
       </div>
       <div class="col-sm-12 col-md-6 ml-5">
-        <div class="top-menu position-absolute">
+        <div class="top-menu">
           <h1 class="font">
             <%= t("dictionary.sentence.healing_is_here") %><br><%= t("dictionary.sentence.play_the_oyabaka") %>
           </h1>
           <% if user_signed_in? %>
             <%= link_to t("dictionary.button.log_out"), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary mx-3 mt-3" %><br>
           <% else %>
-            <%= link_to t("dictionary.button.log_in"), new_user_session_path, class: "btn btn-primary mx-3 mt-3 mb-2" %><br>
-            <%= link_to t("dictionary.button.sign_up"), new_user_registration_path, class: "btn btn-outline-primary mx-3 my-2" %><br>
+            <%= link_to t("dictionary.button.log_in"), new_user_session_path, class: "allbtn btn-1 mx-3 mt-3 mb-2" %><br>
+            <%= link_to t("dictionary.button.sign_up"), new_user_registration_path, class: "allbtn btn-2 mx-3 my-2" %><br>
           <% end %>
-          <%= link_to t("dictionary.button.go_app"), search_contents_path, class: "btn btn-outline-dark mx-3 my-2" %>
+          <section>
+            <%= link_to t("dictionary.button.go_app"), search_contents_path, class: "btn-3 mx-3 my-2" %>
+          </section>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
