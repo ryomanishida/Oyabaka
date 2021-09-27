@@ -70,7 +70,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <% @followings.each do |user| %>
                 <% if user.profile_image? %>
-                  <%= image_tag user.profile_image.url, class: 'icon' %>
+                  <%= image_tag user.profile_image.url, class: "icon" %>
                 <% else %>
                   <%= image_tag 'no_image.jpg', class: "icon" %>
                 <% end %>

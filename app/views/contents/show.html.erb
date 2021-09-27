@@ -52,6 +52,25 @@
               </p>
             <% end %>
           </div>
+
+          <!--アルバムに追加する-->
+          <!--<div class="far fa-plus-square mx-3 mt-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+          <!--  <div class="dropdown-menu">-->
+          <!--    <div class="ml-2 mt-1">-->
+          <!--      アルバムに追加する-->
+          <!--    </div>-->
+          <!--    <hr>-->
+            <!--アルバム名を選択して、追加する-->
+              <%# @albums.each do |album| %>
+            <!--  <div class="dropdown-item">-->
+                　<%#= album.album_name %>
+            <!--  </div>-->
+              <%# end %>
+          <!--  </div>-->
+          <!--</div>-->
+
+
+
           <div class="link-color mx-3 mt-2">
             <% if @user == current_user %>
               <%= link_to t("dictionary.words.edit"), edit_content_path(@content) %>

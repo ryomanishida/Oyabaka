@@ -16,7 +16,7 @@ class ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     @content.user_id = current_user.id
-    category_list = params[:content][:tag_names].split(",")
+    category_list = params[:content][:tag_names].gsub(/[[:blank:]]+/, ',').split(',')
     if @content.save
       @content.categories_save(category_list)
       redirect_to content_path(@content)
@@ -31,11 +31,11 @@ class ContentsController < ApplicationController
     @comment = Comment.new
     @content_tags = @content.categories
     @user = @content.user
+    @albums = current_user.albums
   end
 
   def edit
     @content = Content.find(params[:id])
-    @content_tags = @content.categories.pluck(:tag_name).join(",")
     unless @content.user == current_user
       redirect_to search_contents_path
     end
@@ -43,7 +43,7 @@ class ContentsController < ApplicationController
 
   def update
     @content = Content.find(params[:id])
-    category_list = params[:content][:tag_names].split(",")
+    category_list = params[:content][:tag_names].gsub(/[[:blank:]]+/, ',').split(',')
     if @content.update(content_params)
       @content.categories_save(category_list)
       redirect_to content_path(@content)

@@ -72,3 +72,4 @@ group :production do
 end
 gem 'ovirt-engine-sdk', '= 4.4.1'
 gem 'fog-aws'
+gem 'kaminari'

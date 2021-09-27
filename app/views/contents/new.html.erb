@@ -18,9 +18,8 @@
           <%= f.label :introduction %>
           <%= f.text_area :introduction, class: "form-control mb-3" %>
           <hr>
-          <%= f.label :tag %><br>
-          <%= t("dictionary.sentence.example") %>
-          <%= f.text_field :tag_names, placeholder: t("dictionary.sentence.please_separate_with,") %>
+          <%= f.label :tag %><%= "　　"%><%= t("dictionary.sentence.example") %><br>
+          <%= f.text_field :tag_names, placeholder: t("dictionary.sentence.separate_with_spaces") %>
         <%= f.submit t("dictionary.button.create"), class: "btn btn-lg btn-block btn-info mt-4" %>
         <% end %>
       </div>

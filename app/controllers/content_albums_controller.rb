@@ -6,6 +6,7 @@ class ContentAlbumsController < ApplicationController
     @album = Album.new
   end
 
+
   def create
     @album = Album.new#アルバムの保存
     @album.album_name = params[:content_album][:album_name]
@@ -29,6 +30,7 @@ class ContentAlbumsController < ApplicationController
     redirect_to albums_path
   end
 
+
   def edit
     @contents = current_user.contents
     @content_album = ContentAlbum.new
@@ -38,6 +40,7 @@ class ContentAlbumsController < ApplicationController
     #   redirect_to albums_path
     # end
   end
+
 
   def update
     album = Album.find(params[:album_id])

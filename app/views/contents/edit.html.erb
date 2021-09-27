@@ -11,15 +11,14 @@
       <h5 class="form-title bg-light p-4">画像投稿フォーム</h5>
       <div class="form-body p-4">
         <%= form_with model:@content, local:true do |f| %>
-          <%= f.label :img, "File", class: "image_input_btn w-50" %><br>
-          <%= f.file_field :img, class: "image image_form" %>
+          <%= f.label :img %><br>
+          <%= f.file_field :img, class: "mb-3" %><br>
           <%= f.label :title %>
           <%= f.text_field :title, class: "form-control mb-3" %>
           <%= f.label :introduction %>
           <%= f.text_area :introduction, class: "form-control mb-3" %>
-          <%= f.label :tag %><br>
-          <%= t("dictionary.sentence.example") %>
-          <%= f.text_field :tag_names, placeholder: t("dictionary.sentence.please_separate_with,") %>
+          <%= f.label :tag %><%= "　　"%><%= t("dictionary.sentence.example") %><br>
+          <%= f.text_field :tag_names, placeholder: t("dictionary.sentence.separate_with_spaces") %>
           <hr>
           <%= link_to t("dictionary.button.delete"), content_path(@content), method: :delete, data: {confirm: "投稿を削除します。よろしいですか？"}, class: "btn btn-danger mr-5" %>
           <%= f.submit t("dictionary.button.update"), class: "btn btn-info ml-5" %>

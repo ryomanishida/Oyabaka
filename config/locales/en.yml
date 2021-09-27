@@ -57,7 +57,7 @@ en:
       tags: "Tags"
       ranking: "Ranking"
       favo: "favo"
-      number_of_photos: "Number of photos"
+      photo_inside: "Photo inside"
     sentence:
       healing_is_here: "Healing is here"
       play_the_oyabaka: "Play the oyabaka"
@@ -69,4 +69,4 @@ en:
       leave_blank_if_not_changed: "Leave blank if not changed"
       please_enter_your_current_password_to_change: "Please enter your current password to change"
       example: "ex) dog,food,cute"
-      please_separate_with,: "please separate with,"
+      separate_with_spaces: "Separate with spaces"

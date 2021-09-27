@@ -12,9 +12,10 @@
               <th><%= user.name %></th>
               <th><%= user.email %></th>
               <th><%= user.created_at %></th>
-              <th><%= link_to "投稿", user_contents_path(user), class:"btn btn-success" %></th>
+              <th><%= link_to "投稿", user_contents_path(user), class: "btn btn-success" %></th>
           </tr>
         <% end %>
       </thead>
     </table>
+    <%= paginate @users %>
 </div>
