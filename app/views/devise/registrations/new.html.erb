@@ -4,7 +4,11 @@
         <h1 class="font">親バカ</h1>
         <% if flash[:alert] %>
           <% flash.each do |alert, message| %>
-            <%= message %>
+            <div class="alert alert-danger mx-5 mt-5">
+              <% message2 = message.gsub(",","<br>") %>
+              <%= message2.html_safe %>
+              <!--.html_safeで<br>が文字列されるのを防ぐ-->
+            </div>
           <% end %>
         <% end %>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>

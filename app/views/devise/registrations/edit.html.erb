@@ -1,7 +1,10 @@
 <%= render 'layouts/navber' %>
 <% if flash[:alert] %>
   <% flash.each do |alert, message| %>
-    <%= message %>
+    <div class="alert alert-danger mx-5 mt-5">
+      <% message2 = message.gsub(",","<br>") %>
+      <%= message2.html_safe %>
+    </div>
   <% end %>
 <% end %>
 

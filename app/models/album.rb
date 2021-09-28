@@ -8,6 +8,6 @@ class Album < ApplicationRecord
 
   private
   def albums_limit
-    errors.add(:base, "You can create up to #{MAX_ALBUMS_COUNT} albums") if user.albums.count >= MAX_ALBUMS_COUNT
+    errors.add(:base, :limit_error) if user.albums.count >= MAX_ALBUMS_COUNT
   end
 end

@@ -17,7 +17,7 @@
         <% else %>
           <%= image_tag 'no_image.jpg', class: "icon" %>
         <% end %>
-        <%= f.label :profile_image %><br />
+        <%= f.label :profile_image %><br>
         <%= f.file_field :profile_image, class: "my-3" %><br>
         <%= f.label :name %>
         <%= f.text_field :name, class: "form-control mb-3" %>
@@ -32,6 +32,8 @@
     </div>
   </div>
 </div>
+
+
 <div class="container my-5">
   <div class="row">
     <h1 class="font"><%= t("dictionary.words.mypage") %></h1>
@@ -56,17 +58,21 @@
       <table>
         <tr>
           <th>
-          <%= @contents_quantity %>
-          <%= link_to t("dictionary.words.post"), user_contents_path(@user), class: "link mr-4" %>
+            <h3 class="font">
+              <%= @contents_quantity %>
+              <%= link_to t("dictionary.words.post"), user_contents_path(@user), class: "link mr-5" %>
+            </h3>
           </th>
           <th>
-          <%= link_to t("dictionary.words.album"), albums_path, class: "link" %>
+            <h3 class="font">
+              <%= link_to t("dictionary.words.album"), albums_path, class: "link mr-5" %>
+            </h3>
           </th>
           <th>
           <div class="dropdown">
-            <div class="nav-link dropdown-toggle col" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <h3 class="nav-link dropdown-toggle col font" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= @follow_quantity %><%= t("dictionary.words.follow") %>
-            </div>
+            </h3>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <% @followings.each do |user| %>
                 <% if user.profile_image? %>

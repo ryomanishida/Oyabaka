@@ -24,6 +24,9 @@ en:
         album_name: "Album name"
       album:
         album_name: "Album name"
+    errors:
+      messages:
+        limit_error: "You can create up to 6 albums"
   attributes:
     created_at: "created date"
     updated_at: "Update date"

@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       sign_in(@user, :bypass => true)
       redirect_to search_contents_path
     else
-      flash[:alert] = @user.errors.full_messages
+      flash[:alert] = @user.errors.full_messages.join(',')
       redirect_to new_user_registration_path
     end
   end
@@ -35,7 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       sign_in(@user, :bypass => true)#deviseが勝手にログアウトするので
       redirect_to edit_user_registration_path
     else
-      flash[:alert] = @user.errors.full_messages
+      flash[:alert] = @user.errors.full_messages.join(',')
       redirect_to edit_user_registration_path
     end
   end

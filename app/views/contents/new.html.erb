@@ -1,7 +1,9 @@
 <%= render 'layouts/navber' %>
 <% if flash[:alert] %>
   <% flash.each do |alert, message| %>
+  <div class="alert alert-danger mx-5 mt-5">
     <%= message %>
+  </div>
   <% end %>
 <% end %>
 
@@ -12,14 +14,14 @@
       <div class="form-body p-4">
         <%= form_with model:@content, local:true do |f| %>
           <%= f.label :img %><br>
-          <%= f.file_field :img %><br>
+          <%= f.file_field :img, class: "mb-3" %><br>
           <%= f.label :title %>
           <%= f.text_field :title, class: "form-control mb-3" %>
           <%= f.label :introduction %>
           <%= f.text_area :introduction, class: "form-control mb-3" %>
           <hr>
           <%= f.label :tag %><%= "　　"%><%= t("dictionary.sentence.example") %><br>
-          <%= f.text_field :tag_names, placeholder: t("dictionary.sentence.separate_with_spaces") %>
+          <%= f.text_field :tag_names, placeholder: t("dictionary.sentence.separate_with_spaces"),class: "form-control" %>
         <%= f.submit t("dictionary.button.create"), class: "btn btn-lg btn-block btn-info mt-4" %>
         <% end %>
       </div>
