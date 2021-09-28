@@ -15,10 +15,12 @@ ja:
       following: "フォロー中"
       follow: "フォロー"
     words:
+      title: "タイトル"
       edit: "編集"
       user_edit: "ユーザー編集"
       withdraw: "退会する"
       comment: "コメント"
+      enter_a_comment: "コメントを入力"
       mypage: "マイページ"
       history: "投稿履歴"
       post: "投稿"

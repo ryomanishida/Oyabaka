@@ -11,7 +11,7 @@
 <div class="container my-5">
   <h1 class="font"><%= t("dictionary.words.edit") %></h1>
   <%= form_for(resource, as: resource_name, url: user_registration_path, html: { method: :put }) do |f| %>
-    <div class="field">
+    <div class="field mt-4">
       <%if current_user.admin? %>
         <% if current_user.profile_image? %>
           <%= image_tag current_user.profile_image.url, class: "icon my-3" %>
@@ -26,7 +26,7 @@
         <%= f.text_area :self_introduction, class: "mb-3" %><br />
       <% end %>
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "mb-3" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
     <div class="actions">
       <%= f.submit t("dictionary.button.update"), class: "btn btn-success my-3"%>
@@ -40,10 +40,10 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
     <div class="field">
-      <%= f.label :new_password %>：<%= t("dictionary.sentence.leave_blank_if_not_changed") %>
+      <%= f.label :new_password %><span class="text-secondary">：<%= t("dictionary.sentence.leave_blank_if_not_changed") %></span>
       <% if @minimum_password_length %>
         <br />
-        <em><%= @minimum_password_length %> 文字以上</em>
+        <em class="text-secondary"><%= @minimum_password_length %> 文字以上</em>
       <% end %><br>
       <%= f.password_field :password, autocomplete: "new-password",class: "mb-3" %>
     </div>
@@ -52,7 +52,7 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "mb-3" %>
     </div>
     <div class="field">
-      <%= f.label :current_password %>：<%= t("dictionary.sentence.please_enter_your_current_password_to_change") %><br />
+      <%= f.label :current_password %><span class="text-secondary">：<%= t("dictionary.sentence.please_enter_your_current_password_to_change") %></span><br />
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>
     <div class="actions">

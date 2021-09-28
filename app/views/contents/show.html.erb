@@ -48,23 +48,27 @@
             <% end %>
           </div>
 
-          <!--アルバムに追加する-->
-          <!--<div class="far fa-plus-square mx-3 mt-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-          <!--  <div class="dropdown-menu">-->
-          <!--    <div class="ml-2 mt-1">-->
-          <!--      アルバムに追加する-->
-          <!--    </div>-->
-          <!--    <hr>-->
-            <!--アルバム名を選択して、追加する-->
-              <%# @albums.each do |album| %>
-            <!--  <div class="dropdown-item">-->
-                　<%#= album.album_name %>
-            <!--  </div>-->
-              <%# end %>
-          <!--  </div>-->
-          <!--</div>-->
-
-
+<%
+=begin
+%>
+          アルバムに追加する
+          <div class="far fa-plus-square mx-3 mt-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown-menu">
+              <div class="ml-2 mt-1">
+                アルバムに追加する
+              </div>
+              <hr>
+            アルバム名を選択して、追加する
+              <% @albums.each do |album| %>
+              <div class="dropdown-item">
+                　<%= album.album_name %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+<%
+=end
+%>
 
           <div class="link-color mx-3 mt-2">
             <% if @user == current_user %>
@@ -82,7 +86,7 @@
     <div class="col sidebar">
       <div>
         <%= form_with model:[@content, @comment], local: true do |f| %>
-          <%= f.text_area :comment, placeholder: "コメントを入力", class: "form-control" %>
+          <%= f.text_area :comment, placeholder: t("dictionary.words.enter_a_comment"), class: "form-control" %>
           <%= f.submit t("dictionary.button.send"), class: "btn btn-block btn-info mt-4" %>
         <% end %>
       </div>
@@ -91,10 +95,19 @@
         <tbody>
           <tr>
             <th>
-              <%= comment.user.name %>
-              <%= comment.created_at.strftime('%Y/%m/%d') %><br />
-              <%= comment.comment %>
+              <% if comment.user.profile_image? %>
+                <%= image_tag comment.user.profile_image.url, class: "icon" %>
+              <% else %>
+                <%= image_tag 'no_image.jpg', class: "icon" %>
+              <% end %>
             </th>
+            <td>
+              <div class="text-secondary">
+                <%= comment.user.name %>
+                <%= comment.created_at.strftime('%Y/%m/%d') %>
+              </div>
+              <%= comment.comment %>
+            </td>
             <td>
               <% if comment.user == current_user %>
                 <%= link_to "削除", content_comment_path(@content, comment), method: :delete %>

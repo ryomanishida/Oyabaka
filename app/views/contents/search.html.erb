@@ -4,7 +4,7 @@
     <h4 class="font"><%= t ("dictionary.words.tags") %></h4>
     <% @tags.each do |tag| %>
       <%= link_to category_path(tag) do %>
-        <div class= "badge badge-pill badge-secondary ml-1">
+        <div class= "badge badge-pill badge-dark ml-1">
           <%= tag.tag_name %>
         </div>
       <% end %>

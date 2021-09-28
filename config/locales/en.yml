@@ -46,10 +46,12 @@ en:
       follow: "Follow"
       back: "back"
     words:
+      title: "Title"
       edit: "Edit"
       user_edit: "User Edit"
       withdraw: "withdraw"
       comment: "comment"
+      enter_a_comment: "Enter a comment"
       mypage: "Mypage"
       history: "Post history"
       post: "Post"
