@@ -36,6 +36,6 @@ Rails.application.routes.draw do
 
   resources :albums, only: [:index, :show, :update, :destroy]
 
-  resources :categories, only: [:show]
+  resources :categories, only: [:show, :destroy]
 
 end

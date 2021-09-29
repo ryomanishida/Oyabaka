@@ -16,9 +16,9 @@ class ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     @content.user_id = current_user.id
-    category_list = params[:content][:tag_names].gsub(/[[:blank:]]+/, ',').split(',')
+    tags = params[:content][:tag_names].gsub(/[[:blank:]]+/, ',').split(',')
     if @content.save
-      @content.categories_save(category_list)
+      @content.categories_save(tags)
       redirect_to content_path(@content)
     else
       flash[:alert] = @content.errors.full_messages
@@ -29,7 +29,6 @@ class ContentsController < ApplicationController
   def show
     @content = Content.find(params[:id])
     @comment = Comment.new
-    @content_tags = @content.categories
     @user = @content.user
     @albums = current_user.albums
   end

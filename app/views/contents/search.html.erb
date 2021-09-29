@@ -1,7 +1,7 @@
 <%= render 'layouts/navber' %>
 <div class= "container">
   <div class="row my-4">
-    <h4 class="font"><%= t ("dictionary.words.tags") %></h4>
+    <h4 class="font"><%= t("dictionary.words.tags") %></h4>
     <% @tags.each do |tag| %>
       <%= link_to category_path(tag) do %>
         <div class= "badge badge-pill badge-dark ml-1">
@@ -10,12 +10,19 @@
       <% end %>
     <% end %>
   </div>
-  <h2 class="font"><%= t ("dictionary.words.ranking") %></h2>
+  <h2 class="font"><%= t("dictionary.words.ranking") %></h2>
   <div class="row">
       <% @ranks.each.with_index(1) do |content, i| %>
-      <div class="col-md-12 col-lg-4">
-        <%= i %>位
-        <div class="card card-size mx-3 my-5 shadow-lg">
+      <div class="col-sm-12 col-lg-4">
+        <% if i==1 %>
+          <%= image_tag "crown-k", class: "icon" %>
+        <% elsif i==2 %>
+          <%= image_tag "crown-g", class: "icon" %>
+        <% elsif i==3 %>
+          <%= image_tag "crown-d", class: "icon" %>
+        <% end %>
+        No.<%= i %>
+        <div class="card card-size mb-5 shadow-lg">
           <div class="imgs-spase">
             <%= link_to content_path(content) do %>
               <%= image_tag content.img.url, class: "card-img-trim" %>

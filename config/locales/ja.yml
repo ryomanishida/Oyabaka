@@ -41,4 +41,3 @@ ja:
       leave_blank_if_not_changed: "変更しない場合は空白にしてください"
       please_enter_your_current_password_to_change: "変更するには、現在のパスワードを入力してください"
       example: "例) 犬　エサ　かわいい"
-      separate_with_spaces: "スペースで区切る"

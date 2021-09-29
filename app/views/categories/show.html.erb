@@ -1,4 +1,8 @@
 <%= render 'layouts/navber' %>
 <div class="container my-5">
+  <h1 class="font"><%= @category.tag_name %></h1>
+  <% if current_user.admin %>
+    <%= link_to t("dictionary.button.delete"), category_path(@category), method: :delete, data: {confirm: "タグを削除します。よろしいですか？"}, class: "btn btn-danger" %>
+  <% end %>
   <%= render 'layouts/content' %>
 </div>

@@ -8,8 +8,8 @@
       </div>
       <div class="mx-3 my-4">
         <%= @content.created_at %>
-        <% @content_tags.each do |tag| %>
-        <span class="badge badge-pill badge-dark ml-5">
+        <% @content.categories.each do |tag| %>
+        <span class="badge badge-pill badge-dark ml-2">
           <%= tag.tag_name %>
         </span>
         <% end %>

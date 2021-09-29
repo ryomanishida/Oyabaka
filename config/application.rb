@@ -23,6 +23,5 @@ module Oyabaka
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     # 翻訳ボタンのデフォルトをenにする
     config.i18n.default_locale = :en
-
   end
 end
