@@ -1,15 +1,15 @@
 <%= render 'layouts/navber' %>
-<% if flash[:alert] %>
-  <% flash.each do |alert, message| %>
-    <div class="alert alert-danger mx-5 mt-5">
-      <% message2 = message.gsub(",","<br>") %>
-      <%= message2.html_safe %>
-    </div>
-  <% end %>
-<% end %>
 
 <div class="container my-5">
   <h1 class="font"><%= t("dictionary.words.edit") %></h1>
+  <% if flash[:alert] %>
+    <% flash.each do |alert, message| %>
+      <div class="alert alert-danger mx-5 mt-5">
+        <% message2 = message.gsub(",","<br>") %>
+        <%= message2.html_safe %>
+      </div>
+    <% end %>
+  <% end %>
   <%= form_for(resource, as: resource_name, url: user_registration_path, html: { method: :put }) do |f| %>
     <div class="field mt-4">
       <%if current_user.admin? %>

@@ -7,16 +7,14 @@ main{
   margin-top: 50px;
 }
 
-.topimage{
-  border-radius: 35px;
-  width: 450px;
-}
-
 .align-items-center {
   text-align: center;
 }
-
-.image-fluid{
+.top-image{
+  border-radius: 35px;
+  width: 90%;
+}
+.about-image{
   max-width: 100%;
   height: auto;
 }
@@ -32,7 +30,7 @@ main{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 80%;
   height: 50px;
   position: relative;
   /*background: #228bc8;*/
@@ -89,7 +87,7 @@ main{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 80%;
   height: 50px;
   position: relative;
   background: #228bc8;

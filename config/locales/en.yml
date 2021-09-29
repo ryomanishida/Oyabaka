@@ -55,6 +55,7 @@ en:
       mypage: "Mypage"
       history: "Post history"
       post: "Post"
+      post_edit: "Post edit"
       follow: "Follow"
       album: "Album"
       tags: "Tags"

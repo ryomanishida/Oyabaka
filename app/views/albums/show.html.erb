@@ -21,8 +21,8 @@
 
 
 <div class="container my-5">
-  <div class="row">
-    <h3>
+  <div class="row mx-2">
+    <h3 class= "mr-4">
       <%= @album.album_name %>
     </h3>
     <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
@@ -35,7 +35,7 @@
       <i class="fas fa-sync"></i>
     <% end %>
   </div>
-  <div class="d-flex">
+  <div class="d-flex mx-2">
     <div class="row mt-5">
       <% @content_albums.each do |content_album| %>
         <div class="position-relative pr-3">

@@ -1,12 +1,12 @@
 <%= render 'layouts/navber' %>
-<% if flash[:alert] %>
-  <% flash.each do |alert, message| %>
-    <div class="alert alert-danger mx-5 mt-5">
-      <%= message %>
-    </div>
-  <% end %>
-<% end %>
 <div class="container my-5">
+  <% if flash[:alert] %>
+    <% flash.each do |alert, message| %>
+      <div class="alert alert-danger mx-5 mt-5">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
   <%= form_with model:@content_album, local: true do |f| %>
     <%= f.label :album_name %>
     <%= f.text_field :album_name %>

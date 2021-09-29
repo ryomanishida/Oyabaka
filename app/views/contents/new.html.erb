@@ -1,16 +1,15 @@
 <%= render 'layouts/navber' %>
-<% if flash[:alert] %>
-  <% flash.each do |alert, message| %>
-  <div class="alert alert-danger mx-5 mt-5">
-    <%= message %>
-  </div>
-  <% end %>
-<% end %>
-
 <div class="containar my-5">
+  <% if flash[:alert] %>
+    <% flash.each do |alert, message| %>
+    <div class="alert alert-danger mx-5 mt-5">
+      <%= message %>
+    </div>
+    <% end %>
+  <% end %>
   <div class="row no-gutters">
-    <div class="col-md-5 col-sm-10 mx-auto shadow-lg my-5">
-      <h5 class="form-title bg-light p-4">画像投稿フォーム</h5>
+    <div class="col-sm-10 col-md-5 mx-auto shadow-lg my-5">
+      <h5 class="form-title bg-light p-4"><%= t("dictionary.words.post") %></h5>
       <div class="form-body p-4">
         <%= form_with model:@content, local:true do |f| %>
           <%= f.label :img %><br>
@@ -21,7 +20,7 @@
           <%= f.text_area :introduction, class: "form-control mb-3" %>
           <hr>
           <%= f.label :tag_names %><%= "　　"%><span class="text-secondary"><%= t("dictionary.sentence.example") %></span><br>
-          <%= f.text_field :tag_names, placeholder: t("dictionary.sentence.separate_with_spaces"),class: "form-control" %>
+          <%= f.text_field :tag_names, class: "form-control" %>
         <%= f.submit t("dictionary.button.create"), class: "btn btn-lg btn-block btn-info mt-4" %>
         <% end %>
       </div>
