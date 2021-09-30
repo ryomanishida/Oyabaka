@@ -2,9 +2,7 @@
 <div class="container my-5">
   <div class="row">
     <div class="col">
-      <div class= "img-spase">
-        <%= image_tag @content.img.url, class: "img" %>
-      </div>
+      <%= image_tag @content.img.url, class: "img-fluid" %>
       <div class="mx-3 my-4">
         <%= @content.created_at %>
         <% @content.categories.each do |tag| %>

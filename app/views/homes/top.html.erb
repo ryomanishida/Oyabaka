@@ -8,13 +8,13 @@
           <h1 class="font">
             <%= t("dictionary.sentence.healing_is_here") %><br><%= t("dictionary.sentence.play_the_oyabaka") %>
           </h1>
-          <% if user_signed_in? %>
-            <%= link_to t("dictionary.button.log_out"), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary mt-3" %><br>
-          <% else %>
-            <%= link_to t("dictionary.button.log_in"), new_user_session_path, class: "allbtn btn-1 mt-3 mb-2 ml-4" %><br>
-            <%= link_to t("dictionary.button.sign_up"), new_user_registration_path, class: "allbtn btn-2 my-2 ml-4" %><br>
-          <% end %>
-          <section>
+          <section class="mt-5">
+            <% if user_signed_in? %>
+              <%= link_to t("dictionary.button.log_out"), destroy_user_session_path, method: :delete, class: "allbtn btn-2 mt-3 ml-4" %><br>
+            <% else %>
+              <%= link_to t("dictionary.button.log_in"), new_user_session_path, class: "allbtn btn-1 mt-3 mb-2 ml-4" %><br>
+              <%= link_to t("dictionary.button.sign_up"), new_user_registration_path, class: "allbtn btn-2 my-2 ml-4" %><br>
+            <% end %>
             <%= link_to t("dictionary.button.go_app"), search_contents_path, class: "btn-3 my-2 ml-4" %>
           </section>
       </div>

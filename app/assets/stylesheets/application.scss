@@ -17,6 +17,7 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@charset "UTF-8";
 
 .font{
   font-family: 'Yomogi', cursive;
@@ -53,18 +54,13 @@ body{
 .fas-size-big{
   transform: scale(2);
 }
-// 投稿のshow
-.img-spase {
-  width: 750px;
-  height: 500px;
-  object-fit: cover;
-  background-color: #333333;
-  text-align: center;
+// content/show
+.img-fluid{
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
 }
-.img{
-  height: 100%;
-}
-// 投稿cardの画像
+// content/cardの画像
 .imgs-spase {
   background-color: #333333;
   text-align: center;
