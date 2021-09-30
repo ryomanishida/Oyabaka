@@ -53,8 +53,8 @@ class ContentsController < ApplicationController
   end
 
   def destroy
-    @content = Content.find(params[:id])
-    if  @content.destroy
+    content = Content.find(params[:id])
+    if  content.destroy
       redirect_to search_contents_path
     else
       render :edit

@@ -12,7 +12,7 @@
       <h5 class="form-title bg-light p-4"><%= t("dictionary.words.post_edit") %></h5>
       <div class="form-body p-4">
         <div class= "card-img-spase mb-2">
-          <%= image_tag @content.img.url, class: "img" %>
+          <%= image_tag @content.img.url, class: "card-img-trim" %>
         </div>
         <% @content.categories.each do |tag| %>
           <span class="badge badge-pill badge-dark mb-2">
