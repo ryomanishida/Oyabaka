@@ -9,7 +9,9 @@ class CategoriesController < ApplicationController
     if  category.destroy
       redirect_to search_contents_path
     else
-      render :edit
+      @category = Category.find(params[:id])
+      @contents = @category.contents
+      render :show
     end
   end
 end

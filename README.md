@@ -40,7 +40,7 @@ https://docs.google.com/spreadsheets/d/1Vr4uEedi_VfcFyi505IXg7Vnb2xmrn2PspMmlS89
 https://docs.google.com/spreadsheets/d/1XTxpfOeKkZMCSQGcurSJEEYLKhKiqq3zRsK1Kp5KGT0/edit#gid=0
 
 ## 開発環境
-- OS：Mac OS
+- OS：Linux
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
