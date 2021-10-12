@@ -64,6 +64,7 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'kaminari'
 gem 'jquery-ui-rails'
 gem 'rails-i18n'
 gem 'dotenv-rails'
@@ -72,4 +73,3 @@ group :production do
 end
 gem 'ovirt-engine-sdk', '= 4.4.1'
 gem 'fog-aws'
-gem 'kaminari'
