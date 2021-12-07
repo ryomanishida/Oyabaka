@@ -1,9 +1,12 @@
 class ContentsController < ApplicationController
+
   def search
     @ranks = Content.find(Like.group(:content_id).order('count(content_id) desc').limit(3).pluck(:content_id))
     @tags = Category.all
     if params[:title].present?
       @contents = Content.where('title LIKE ?', "%#{params[:title]}%")
+      # @search_params = content_search_params  #検索結果の画面で、フォームに検索した値を表示するために、paramsの値をビューで使えるようにする
+      # @contents = Content.search(@search_params).joins(:user)  #searchメソッドを呼び出し、引数としてparamsを渡している
     else
       @contents = Content.all
     end
@@ -35,6 +38,7 @@ class ContentsController < ApplicationController
 
   def edit
     @content = Content.find(params[:id])
+    @tags = Category.where(id: @content)
     unless @content.user == current_user
       redirect_to search_contents_path
     end
@@ -67,4 +71,11 @@ class ContentsController < ApplicationController
   def content_params
     params.require(:content).permit(:title, :introduction, :img, :user_id)
   end
+
+  # def content_search_params
+  #   params.fetch(:search, {}).permit(:title)
+  #   #fetch(:search, {})と記述することで、検索フォームに値がない場合はnilを返し、エラーが起こらなくなる
+  #   #ここでの:searchには、フォームから送られてくるparamsの値が入っている
+  # end
+
 end

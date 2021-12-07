@@ -5,6 +5,7 @@
       <%= image_tag @content.img.url, class: "img-fluid" %>
       <div class="mx-3 my-4">
         <%= @content.created_at %>
+        <!--タグ-->
         <% @content.categories.each do |tag| %>
         <span class="badge badge-pill badge-dark ml-2">
           <%= tag.tag_name %>
@@ -81,12 +82,14 @@
       </div>
     </div>
     <div class="col sidebar">
+      <!--コメントフォーム-->
       <div>
         <%= form_with model:[@content, @comment], local: true do |f| %>
           <%= f.text_area :comment, placeholder: t("dictionary.words.enter_a_comment"), class: "form-control" %>
           <%= f.submit t("dictionary.button.send"), class: "btn btn-block btn-info mt-4" %>
         <% end %>
       </div>
+      <!--コメント表示-->
       <table class="table mt-3">
         <% @content.comments.each do |comment| %>
         <tbody>
