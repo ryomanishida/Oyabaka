@@ -3,11 +3,7 @@
   <div class="row my-4">
     <h4 class="font"><%= t("dictionary.words.tags") %></h4>
     <% @tags.each do |tag| %>
-      <%= link_to category_path(tag) do %>
-        <div class= "badge badge-pill badge-dark ml-1">
-          <%= tag.tag_name %>
-        </div>
-      <% end %>
+      <%= link_to tag.tag_name, category_path(tag), class: "badge badge-pill badge-dark mt-4 ml-2" %>
     <% end %>
   </div>
   <h2 class="font"><%= t("dictionary.words.ranking") %></h2>
@@ -24,9 +20,7 @@
         No.<%= i %>
         <div class="card card-size mb-5 shadow-lg">
           <div class="imgs-spase">
-            <%= link_to content_path(content) do %>
-              <%= image_tag content.img.url, class: "card-img-trim" %>
-            <% end %>
+            <%= image_tag content.img.url, "/contents/#{content.id}", class: "card-img-trim" %>
           </div>
           <div class="card-body">
             <% if content.user.profile_image? %>

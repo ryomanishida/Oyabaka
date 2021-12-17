@@ -12,9 +12,7 @@
       <% @albums.each do |album| %>
       <tr>
         <th>
-          <%= link_to album_path(album) do %>
-            <%= album.album_name %>
-          <% end %>
+          <%= link_to album.album_name, album_path(album) %>
         </th>
         <th>
           <%= album.content_albums.count %>
